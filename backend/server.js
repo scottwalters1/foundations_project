@@ -1,14 +1,14 @@
 require("dotenv").config();
 const express = require("express");
-const employeeController = require("./controllers/employeeController");
+const userController = require("./controllers/userController");
 
 
 const app = express();
 app.use(express.json());
 
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
-app.post("/employees", employeeController.createEmployee);
-app.get("/employees/:id", employeeController.getEmployee);
+app.post("/users", userController.createUser);
+app.get("/users/:id", userController.getUser);
 
 // Only start server if NOT testing
 if (process.env.NODE_ENV !== "test") {
