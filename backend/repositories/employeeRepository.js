@@ -1,5 +1,6 @@
 const dynamoDB = require("../db/dynamoClient");
 
+// figure out this or syntax here
 const EMPLOYEES_TABLE = process.env.EMPLOYEES_TABLE || "Employees-dev";
 
 module.exports = {
