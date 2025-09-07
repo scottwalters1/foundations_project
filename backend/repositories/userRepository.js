@@ -3,15 +3,18 @@ const dynamoDB = require("../db/dynamoClient");
 // figure out this or syntax here
 const USERS_TABLE = process.env.USERS_TABLE || "Users";
 
-module.exports = {
-    async createUser(user) {
-        const params = { TableName: USERS_TABLE, Item: user };
-        return dynamoDB.put(params).promise();
-    },
+async function createUser(user) {
+  const params = { TableName: USERS_TABLE, Item: user };
+  return dynamoDB.put(params).promise();
+}
 
-    async getUserById(userId) {
-        const params = { TableName: USERS_TABLE, Key: { userId }};
-        const result = await dynamoDB.get(params).promise();
-        return result.Item;
-    }
+async function getUserByUsername(userName) {
+  const params = { TableName: USERS_TABLE, Key: { userName } };
+  const result = await dynamoDB.get(params).promise();
+  return result.Item;
+}
+
+module.exports = {
+  createUser,
+  getUserByUsername,
 };

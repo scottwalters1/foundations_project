@@ -8,7 +8,7 @@ app.use(express.json());
 
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
 app.post("/users", userController.createUser);
-app.get("/users/:id", userController.getUser);
+app.get("/users/:userName", userController.getUser);
 
 // Only start server if NOT testing
 if (process.env.NODE_ENV !== "test") {

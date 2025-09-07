@@ -1,14 +1,17 @@
-const userRepository = require("../repositories/userRepository")
+const userRepository = require("../repositories/userRepository");
 const { v4: uuidv4 } = require("uuid");
 
-module.exports = {
-    async createUser(name) {
-        const user = { userId: uuidv4(), name };
-        await userRepository.createUser(user);
-        return user;
-    },
+async function createUser(userName) {
+  const user = { userName };
+  await userRepository.createUser(user);
+  return user;
+}
 
-    async getUserById(userId) {
-        return userRepository.getUserById(userId);
-    }
+async function getUserByUsername(userName) {
+  return userRepository.getUserByUsername(userName);
+}
+
+module.exports = {
+  createUser,
+  getUserByUsername,
 };
