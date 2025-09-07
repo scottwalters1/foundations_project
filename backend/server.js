@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
 const userController = require("./controllers/userController");
-// const authController
-
+const authController = require("./controllers/authController");
+const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
 app.use(express.json());
@@ -11,9 +11,16 @@ app.use(express.json());
 
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
 
+// Public routes
+app.post("/register", authController.register);
+app.post("/login", authController.login);
 
+// Protected route
+app.get("/profile", authMiddleware, (req, res) => {
+  res.json({ message: `Hello, ${req.user.sub}` });
+});
 
-app.post("/users", userController.createUser);
+// app.post("/users", userController.createUser);
 app.get("/users/:userName", userController.getUser);
 
 // Only start server if NOT testing

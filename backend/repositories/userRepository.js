@@ -8,8 +8,8 @@ async function createUser(user) {
   return dynamoDB.put(params).promise();
 }
 
-async function getUserByUsername(userName) {
-  const params = { TableName: USERS_TABLE, Key: { userName } };
+async function getUserByUsername(username) {
+  const params = { TableName: USERS_TABLE, Key: { username } };
   const result = await dynamoDB.get(params).promise();
   return result.Item;
 }

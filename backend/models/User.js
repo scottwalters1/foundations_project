@@ -1,7 +1,8 @@
 class User {
-  constructor({ userName, role = "employee" }) {
-    if (!userName) throw new Error("userName is required");
-    this.userName = userName;
+  constructor({ username, password, role = "employee" }) {
+    if (!username) throw new Error("username is required");
+    this.username = username;
+    this.password = password;
     this.role = role;
     this.createdAt = Date.now(); 
   }
