@@ -2,9 +2,8 @@ const { get } = require("../server");
 const userService = require("../services/userService");
 
 async function createUser(req, res) {
-  const { userName } = req.body;
   try {
-    const user = await userService.createUser(userName);
+    const user = await userService.createUser(req.body);
     res.status(201).json(user);
   } catch (err) {
     console.error(err);
@@ -13,9 +12,9 @@ async function createUser(req, res) {
 }
 
 async function getUser(req, res) {
-  const { userName } = req.params;
+//   const { userName } = req.params;
   try {
-    const user = await userService.getUserByUsername(userName);
+    const user = await userService.getUserByUsername(req.params);
     if (!user) return res.status(404).json({ error: "User not found" });
     res.json(user);
   } catch (err) {
