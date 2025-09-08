@@ -25,6 +25,9 @@ app.get("/users/:username", userController.getUser);
 // Tickets
 app.post("/submitticket", ticketController.submitTicket);
 app.get("/getalltickets", ticketController.getAllTickets);
+// Next: 
+// get unprocessed tickets endpoint
+// process ticket endpoint
 
 // Protected route
 app.get("/profile", authMiddleware, (req, res) => {

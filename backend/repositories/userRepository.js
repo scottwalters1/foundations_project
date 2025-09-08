@@ -1,6 +1,6 @@
 const dynamoDB = require("../db/dynamoClient");
 
-// figure out this or syntax here
+// using USERS_TABLE env var, string if it is falsy
 const USERS_TABLE = process.env.USERS_TABLE || "Users";
 
 async function createUser(user) {
