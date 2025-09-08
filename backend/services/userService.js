@@ -10,7 +10,7 @@ const { v4: uuidv4 } = require("uuid");
 // }
 
 async function getUserByUsername(data) {
-  return userRepository.getUserByUsername(data.userName);
+  return userRepository.getUserByUsername(data.username);
 }
 
 module.exports = {

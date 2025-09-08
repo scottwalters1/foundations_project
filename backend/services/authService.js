@@ -3,9 +3,19 @@ const jwt = require("jsonwebtoken");
 const userRepo = require("../repositories/userRepository");
 const User = require("../models/User");
 
-async function register(username, password) {
+async function register(username, password, role) {
+  const userInDb = await userRepo.getUserByUsername(username);
+  if (userInDb) throw new Error("Username already registered");
+
+  // hashing after checking for user already existing
   const hashed = await bcrypt.hash(password, 10);
-  const user = new User({ username, password: hashed });
+  const user = new User({
+    username,
+    password: hashed,
+    role,
+    createdAt: Date.now(),
+  });
+
   await userRepo.createUser(user);
   return { message: "User registered" };
 }
@@ -17,11 +27,9 @@ async function login(username, password) {
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) throw new Error("Invalid password");
 
-  const token = jwt.sign(
-    { sub: user.username }, 
-    process.env.JWT_SECRET, 
-    { expiresIn: "15m" }
-  );
+  const token = jwt.sign({ sub: user.username }, process.env.JWT_SECRET, {
+    expiresIn: "15m",
+  });
 
   return { token };
 }

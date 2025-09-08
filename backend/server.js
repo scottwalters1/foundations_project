@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
+const ticketController = require("./controllers/ticketController");
 const authMiddleware = require("./middleware/authMiddleware");
 
 const app = express();
@@ -9,19 +10,22 @@ app.use(express.json());
 // express.json() is the piece that says:
 // “If the client sends JSON, automatically parse it into a JavaScript object and put it on req.body.”
 
-app.get("/health", (req, res) => res.json({ status: "API is running" }));
+
 
 // Public routes
+app.get("/health", (req, res) => res.json({ status: "API is running" }));
 app.post("/register", authController.register);
 app.post("/login", authController.login);
+app.get("/users/:username", userController.getUser);
+app.post("/submitticket", ticketController.submitTicket);
+// process ticket endpoint maybe next
 
 // Protected route
 app.get("/profile", authMiddleware, (req, res) => {
   res.json({ message: `Hello, ${req.user.sub}` });
 });
 
-// app.post("/users", userController.createUser);
-app.get("/users/:userName", userController.getUser);
+
 
 // Only start server if NOT testing
 if (process.env.NODE_ENV !== "test") {
