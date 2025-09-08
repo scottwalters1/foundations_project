@@ -12,6 +12,12 @@ async function submitTicket(data) {
   return { message: "Ticket Submitted" };
 }
 
+async function getAllTickets() {
+    const tickets = await ticketRepository.getAllTickets();
+    return tickets;
+}
+
 module.exports = {
   submitTicket,
+  getAllTickets
 };

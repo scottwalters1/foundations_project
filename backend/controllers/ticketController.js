@@ -10,4 +10,17 @@ async function submitTicket(req, res) {
     }
 }
 
-module.exports = { submitTicket };
+async function getAllTickets(req, res) {
+    try {
+        const tickets = await ticketService.getAllTickets();
+        res.status(200).json(tickets);
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: err.message });
+    }
+}
+
+module.exports = { 
+    submitTicket,
+    getAllTickets
+};

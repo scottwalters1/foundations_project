@@ -14,11 +14,17 @@ app.use(express.json());
 
 // Public routes
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
+
+// Authentication
 app.post("/register", authController.register);
 app.post("/login", authController.login);
+
+// Users
 app.get("/users/:username", userController.getUser);
+
+// Tickets
 app.post("/submitticket", ticketController.submitTicket);
-// process ticket endpoint maybe next
+app.get("/getalltickets", ticketController.getAllTickets);
 
 // Protected route
 app.get("/profile", authMiddleware, (req, res) => {

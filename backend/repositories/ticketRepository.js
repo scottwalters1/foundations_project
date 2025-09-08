@@ -4,10 +4,17 @@ const dynamoDB = require("../db/dynamoClient");
 const TICKETS_TABLE = process.env.USERS_TABLE || "Tickets";
 
 async function submitTicket(ticket) {
-    const params = { TableName: TICKETS_TABLE, Item: ticket };
-    return dynamoDB.put(params).promise();
+  const params = { TableName: TICKETS_TABLE, Item: ticket };
+  return dynamoDB.put(params).promise();
+}
+
+async function getAllTickets() {
+  const params = { TableName: TICKETS_TABLE  };
+  const result = await dynamoDB.scan(params).promise();
+  return result;
 }
 
 module.exports = {
-    submitTicket
+  submitTicket,
+  getAllTickets
 };
