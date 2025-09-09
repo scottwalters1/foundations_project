@@ -1,10 +1,7 @@
-const AWS = require("aws-sdk");
+const { DynamoDBClient} = require("@aws-sdk/client-dynamodb");
+const { DynamoDBDocumentClient, GetCommand, PutCommand, DeleteCommand} = require("@aws-sdk/lib-dynamodb")
 
-AWS.config.update({
-  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  region: process.env.AWS_REGION
-});
+const client = new DynamoDBClient({region: "us-east-2"});
 
-const dynamoDB = new AWS.DynamoDB.DocumentClient();
-module.exports = dynamoDB;
+const documentClient = DynamoDBDocumentClient.from(client);
+module.exports = documentClient;

@@ -1,20 +1,38 @@
-const dynamoDB = require("../db/dynamoClient");
+const { PutCommand, GetCommand } = require("@aws-sdk/lib-dynamodb");
+const documentClient = require("../db/dynamoClient");
 
 // using USERS_TABLE env var, string if it is falsy
 const USERS_TABLE = process.env.USERS_TABLE || "Users";
 
 async function createUser(user) {
-  const params = { TableName: USERS_TABLE, Item: user };
-  return dynamoDB.put(params).promise();
+  const command = new PutCommand({
+    TableName: USERS_TABLE,
+    Item: user
+  });
 
-  // Change to return null in catch error
-  // for truthy and falsy return values
+  try {
+    await documentClient.send(command);
+    return user;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 async function getUserByUsername(username) {
-  const params = { TableName: USERS_TABLE, Key: { username } };
-  const result = await dynamoDB.get(params).promise();
-  return result.Item;
+  const command = new GetCommand({
+    TableName: USERS_TABLE,
+    Key: {username}
+  });
+
+  try {
+    const data = await documentClient.send(command);
+    
+    return data.Item;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
 }
 
 module.exports = {
