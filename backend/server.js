@@ -23,11 +23,16 @@ app.post("/login", authController.login);
 app.get("/users/:username", userController.getUser);
 
 // Tickets
-app.post("/submitticket", ticketController.submitTicket);
-app.get("/getalltickets", ticketController.getAllTickets);
+app.post("/tickets/submit", ticketController.submitTicket);
+app.get("/tickets/:ticketId", ticketController.getTicketById);
+app.get("/tickets", ticketController.getAllTickets);
+app.get("/tickets/unprocessed", ticketController.getUnprocessedTickets);
+app.get("/tickets/:username", ticketController.getTicketsByUsername);
+app.patch("/tickets/:ticketId", ticketController.processTicket);
+
+
 // Next: 
-// get unprocessed tickets endpoint
-// process ticket endpoint
+// todo comments in ticketService
 
 // Protected route
 app.get("/profile", authMiddleware, (req, res) => {
