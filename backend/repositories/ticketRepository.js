@@ -9,12 +9,22 @@ async function submitTicket(ticket) {
 }
 
 async function getAllTickets() {
-  const params = { TableName: TICKETS_TABLE  };
+  const params = { TableName: TICKETS_TABLE };
   const result = await dynamoDB.scan(params).promise();
   return result;
 }
 
+// async function getUnprocessedTickets() {
+//   const params = {
+//     TableName: TICKETS_TABLE,
+//     FilterExpression: "status = :pending",
+//   };
+//   const result = await dynamoDB.scan(params).promise();
+//   return result;
+// }
+
 module.exports = {
   submitTicket,
-  getAllTickets
+  getAllTickets,
+  // getUnprocessedTickets
 };

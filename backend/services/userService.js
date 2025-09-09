@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 //   await userRepository.createUser(user);
 //   return user;
 // }
-
+// change this take username directly instead of data
 async function getUserByUsername(data) {
   return userRepository.getUserByUsername(data.username);
 }
