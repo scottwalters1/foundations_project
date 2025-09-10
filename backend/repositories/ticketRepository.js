@@ -8,37 +8,6 @@ const documentClient = require("../db/dynamoClient");
 
 const TICKETS_TABLE = process.env.TICKETS_TABLE || "Tickets";
 
-async function submitTicket(ticket) {
-  const command = new PutCommand({
-    TableName: TICKETS_TABLE,
-    Item: ticket,
-  });
-
-  try {
-    await documentClient.send(command);
-    return ticket;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
-
-async function getTicketById(ticketId) {
-  const command = new GetCommand({
-    TableName: TICKETS_TABLE,
-    Key: { ticketId },
-  });
-
-  try {
-    const data = await documentClient.send(command);
-
-    return data.Item;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-}
-
 async function getAllTickets() {
   const command = new ScanCommand({
     TableName: TICKETS_TABLE,
@@ -75,6 +44,22 @@ async function getUnprocessedTickets() {
   }
 }
 
+async function getTicketById(ticketId) {
+  const command = new GetCommand({
+    TableName: TICKETS_TABLE,
+    Key: { ticketId },
+  });
+
+  try {
+    const data = await documentClient.send(command);
+
+    return data.Item;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 async function getTicketsByUsername(username) {
   const command = new ScanCommand({
     TableName: TICKETS_TABLE,
@@ -87,6 +72,21 @@ async function getTicketsByUsername(username) {
   try {
     const data = await documentClient.send(command);
     return data.Items;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
+async function submitTicket(ticket) {
+  const command = new PutCommand({
+    TableName: TICKETS_TABLE,
+    Item: ticket,
+  });
+
+  try {
+    await documentClient.send(command);
+    return ticket;
   } catch (error) {
     console.error(error);
     return null;

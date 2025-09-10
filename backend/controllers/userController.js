@@ -1,25 +1,16 @@
+const express = require('express');
+const router = express.Router();
+
 const userService = require("../services/userService");
 
-async function createUser(req, res) {
-  try {
-    const user = await userService.createUser(req.body);
-    res.status(201).json(user);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
+// get user by username
+router.get("/:username", async (req, res) => {
+  const user = await userService.getUserByUsername(req.params);
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    res.status(404).json({message: "User not found"});
   }
-}
+});
 
-async function getUser(req, res) {
-//   const { userName } = req.params;
-  try {
-    const user = await userService.getUserByUsername(req.params);
-    if (!user) return res.status(404).json({ error: "User not found" });
-    res.json(user);
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ error: err.message });
-  }
-}
-
-module.exports = { createUser, getUser};
+module.exports = router;
