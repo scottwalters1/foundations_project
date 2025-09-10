@@ -7,7 +7,7 @@ const USERS_TABLE = process.env.USERS_TABLE || "Users";
 async function createUser(user) {
   const command = new PutCommand({
     TableName: USERS_TABLE,
-    Item: user
+    Item: user,
   });
 
   try {
@@ -22,12 +22,11 @@ async function createUser(user) {
 async function getUserByUsername(username) {
   const command = new GetCommand({
     TableName: USERS_TABLE,
-    Key: {username}
+    Key: { username },
   });
 
   try {
     const data = await documentClient.send(command);
-    
     return data.Item;
   } catch (error) {
     console.error(error);

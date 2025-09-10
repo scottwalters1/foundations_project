@@ -4,6 +4,7 @@ const userRepo = require("../repositories/userRepository");
 const User = require("../models/User");
 
 async function register(username, password, role) {
+  // add validate user
   const userInDb = await userRepo.getUserByUsername(username);
   if (userInDb) throw new Error("Username already registered");
 

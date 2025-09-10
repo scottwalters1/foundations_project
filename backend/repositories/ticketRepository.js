@@ -6,8 +6,7 @@ const {
 } = require("@aws-sdk/lib-dynamodb");
 const documentClient = require("../db/dynamoClient");
 
-// figure out this or syntax here
-const TICKETS_TABLE = process.env.USERS_TABLE || "Tickets";
+const TICKETS_TABLE = process.env.TICKETS_TABLE || "Tickets";
 
 async function submitTicket(ticket) {
   const command = new PutCommand({
@@ -27,12 +26,12 @@ async function submitTicket(ticket) {
 async function getTicketById(ticketId) {
   const command = new GetCommand({
     TableName: TICKETS_TABLE,
-    Key: {ticketId}
+    Key: { ticketId },
   });
 
   try {
     const data = await documentClient.send(command);
-    
+
     return data.Item;
   } catch (error) {
     console.error(error);
@@ -69,7 +68,6 @@ async function getUnprocessedTickets() {
 
   try {
     const data = await documentClient.send(command);
-    console.log(data.Items);
     return data.Items;
   } catch (error) {
     console.error(error);
@@ -81,9 +79,6 @@ async function getTicketsByUsername(username) {
   const command = new ScanCommand({
     TableName: TICKETS_TABLE,
     FilterExpression: "username = :username",
-    // ExpressionAttributeNames: {
-    //   "#s": "status",
-    // },
     ExpressionAttributeValues: {
       ":username": username,
     },
@@ -91,7 +86,6 @@ async function getTicketsByUsername(username) {
 
   try {
     const data = await documentClient.send(command);
-    console.log(data.Items);
     return data.Items;
   } catch (error) {
     console.error(error);
@@ -102,7 +96,7 @@ async function getTicketsByUsername(username) {
 async function processTicket(ticketId, newStatus) {
   const command = new UpdateCommand({
     TableName: TICKETS_TABLE,
-    Key: {ticketId},
+    Key: { ticketId },
     UpdateExpression: "set #s = :newStatus",
     ExpressionAttributeNames: {
       "#s": "status",
@@ -128,5 +122,5 @@ module.exports = {
   getUnprocessedTickets,
   getTicketsByUsername,
   processTicket,
-  getTicketById
+  getTicketById,
 };

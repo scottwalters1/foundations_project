@@ -12,40 +12,36 @@ async function submitTicket(data) {
   return { message: "Ticket Submitted" };
 }
 
-// check into whether i need to do await for all these or just return like this
-async function getTicketById(ticketId) {
+function getTicketById(ticketId) {
   return ticketRepository.getTicketById(ticketId);
 }
 
-async function getAllTickets() {
-  const tickets = await ticketRepository.getAllTickets();
-  return tickets;
+function getAllTickets() {
+  return ticketRepository.getAllTickets();
 }
 
-async function getUnprocessedTickets() {
-  const tickets = await ticketRepository.getUnprocessedTickets();
-  return tickets;
+function getUnprocessedTickets() {
+  return ticketRepository.getUnprocessedTickets();
 }
 
-async function getTicketsByUsername(username) {
-  const tickets = await ticketRepository.getTicketsByUsername(username);
-  return tickets;
+function getTicketsByUsername(username) {
+  return ticketRepository.getTicketsByUsername(username);
 }
 
 async function processTicket(ticketId, newStatus) {
-
-  // check into how to throw the errors or send messages here when wrong
   const ticketToProcess = await ticketRepository.getTicketById(ticketId);
+
+  if (!ticketToProcess) {
+    throw new Error("Ticket not found");
+  }
   if (ticketToProcess.status !== "pending") {
-    return { message: "Ticket already processed" };
+    throw new Error("Ticket already processed");
   }
-
   if (!["approved", "denied"].includes(newStatus)) {
-    return { message: "Invalid new status" };
+    throw new Error("Invalid new status");
   }
 
-  const processedTicket = await ticketRepository.processTicket(ticketId, newStatus);
-  return processedTicket;
+  return ticketRepository.processTicket(ticketId, newStatus);
 }
 
 module.exports = {
@@ -54,5 +50,5 @@ module.exports = {
   getUnprocessedTickets,
   getTicketsByUsername,
   getTicketById,
-  processTicket
+  processTicket,
 };

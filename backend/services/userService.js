@@ -1,19 +1,11 @@
 const userRepository = require("../repositories/userRepository");
 const User = require("../models/User");
-const { v4: uuidv4 } = require("uuid");
 
-// async function createUser(data) {
-//   //   const user = { userName };
-//   const user = new User(data);
-//   await userRepository.createUser(user);
-//   return user;
-// }
-// change this take username directly instead of data
-async function getUserByUsername(data) {
+function getUserByUsername(data) {
+  // change this to separate username and validate maybe
   return userRepository.getUserByUsername(data.username);
 }
 
 module.exports = {
-  // createUser,
   getUserByUsername,
 };
