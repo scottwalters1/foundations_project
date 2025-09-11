@@ -3,22 +3,39 @@ const jwt = require("jsonwebtoken");
 const userRepo = require("../repositories/userRepository");
 const User = require("../models/User");
 
-async function register(username, password, role) {
+async function register(user) {
   // add validate user
-  const userInDb = await userRepo.getUserByUsername(username);
-  if (userInDb) throw new Error("Username already registered");
+  if (await userInDB(user)) {
+    // add logger here
+    console.log("Username already registered");
+    return null;
+  }
+  if (validateUser(user)) {
+    const saltRounds = 10;
+    const hashed = await bcrypt.hash(user.password, saltRounds);
+    const userToAdd = new User({
+      username: user.username,
+      password: hashed,
+      role: user.role,
+      createdAt: Date.now(),
+    });
 
-  // hashing after checking for user already existing
-  const hashed = await bcrypt.hash(password, 10);
-  const user = new User({
-    username,
-    password: hashed,
-    role,
-    createdAt: Date.now(),
-  });
+    const addedUser = await userRepo.createUser(userToAdd);
+    // logger here instead
+    return addedUser;
+  }
+}
 
-  await userRepo.createUser(user);
-  return { message: "User registered" };
+// Brian's code - maybe cite
+function validateUser(user) {
+  const usernameResult = user.username.length > 0;
+  const passwordResult = user.password.length > 0;
+  return usernameResult && passwordResult;
+}
+
+async function userInDB(user) {
+  const userInDB = await userRepo.getUserByUsername(user.username);
+  return userInDB;
 }
 
 async function login(username, password) {

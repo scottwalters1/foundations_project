@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
 const ticketController = require("./controllers/ticketController");
-const authMiddleware = require("./middleware/authMiddleware");
+const authenticateToken = require("./util/jwt");
 const logger = require("./util/logger");
 
 const app = express();
@@ -23,17 +23,19 @@ app.use(express.json());
 
 app.use("/users", userController);
 app.use("/tickets", ticketController);
+app.use("/auth", authController);
 
 // Public routes
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
 
-// Authentication
-app.post("/register", authController.register);
-app.post("/login", authController.login);
+// // Authentication
+// app.post("/register", authController.register);
+// app.post("/login", authController.login);
 
 // Protected route
-app.get("/profile", authMiddleware, (req, res) => {
-  res.json({ message: `Hello, ${req.user.sub}` });
+app.get("/profile", authenticateToken, (req, res) => {
+  res.json({ message: `Hello, ${req.user.username}` });
+  console.log(req.user);
 });
 
 // Only start server if NOT testing
