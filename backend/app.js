@@ -9,29 +9,18 @@ const { loggerMiddleware } = require("./util/logger");
 
 const app = express();
 app.use(express.json());
-app.use(loggerMiddleware);
-
-// this should be moved to logger.js
-// function loggerMiddleware(req, res, next) {
-//   logger.info(`Incoming ${req.method} : ${req.url}`);
-// }
-
-// app.use(loggerMiddleware());
 // app.use(bodyParser.json());
 // express.json() is the piece that says:
 // “If the client sends JSON, automatically parse it into a JavaScript object and put it on req.body.”
 // bodyParser is in curriculum, but is only for older express versions. now main functions built in
 
+app.use(loggerMiddleware);
+app.use("/auth", authController);
 app.use("/users", authenticateToken, userController);
 app.use("/tickets", authenticateToken, ticketController);
-app.use("/auth", authController);
 
 // Public routes
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
-
-// // Authentication
-// app.post("/register", authController.register);
-// app.post("/login", authController.login);
 
 // Protected route
 app.get("/profile", authenticateToken, (req, res) => {
