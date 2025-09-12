@@ -22,3 +22,5 @@
 2025-09-12T19:32:14.472Z [info]: Creating new user: Alice
 2025-09-12T19:32:19.357Z [info]: Incoming POST : /auth/register
 2025-09-12T19:32:19.384Z [info]: Username already registered
+2025-09-12T19:35:48.561Z [info]: Incoming POST : /auth/login
+2025-09-12T19:35:48.832Z [info]: Logged in user: John
