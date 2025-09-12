@@ -15,7 +15,7 @@ async function authenticateToken(req, res, next){
 
     // development purposes
     const token = getToken();
-    console.log(token);
+    // console.log(token);
 
 
     if(!token){

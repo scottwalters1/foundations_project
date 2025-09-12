@@ -18,9 +18,10 @@ function getTicketsByUsername(username) {
   return ticketRepository.getTicketsByUsername(username);
 }
 
-async function submitTicket(data) {
+async function submitTicket(data, username) {
   const newTicket = new Ticket({
     ...data,
+    username,
     ticketId: uuidv4(),
     createdAt: Date.now(),
   });

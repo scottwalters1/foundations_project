@@ -5,7 +5,7 @@ let token = null;
 
 function setToken(newToken) {
   token = newToken;
-  console.log("Token set:", token);
+  // console.log("Token set:", token);
 }
 
 function getToken() {

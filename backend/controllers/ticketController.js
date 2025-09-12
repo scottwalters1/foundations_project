@@ -3,11 +3,18 @@ const router = express.Router();
 
 const ticketService = require("../services/ticketService");
 
-// get all tickets or tickets by username
+// Manager returns every ticket
+// Employee returns their own tickets
 router.get("/", async (req, res) => {
-  const { username } = req.query;
-  if (username) {
-    const tickets = await ticketService.getTicketsByUsername(username);
+  if (req.user.role === "manager") {
+    const tickets = await ticketService.getAllTickets();
+    if (tickets) {
+      return res.status(200).json(tickets);
+    } else {
+      return res.status(400).json({ message: "Internal server error" });
+    }
+  } else {
+    const tickets = await ticketService.getTicketsByUsername(req.user.username);
     if (tickets) {
       return res.status(200).json(tickets);
     } else {
@@ -15,18 +22,14 @@ router.get("/", async (req, res) => {
         .status(400)
         .json({ message: `Tickets from ${username} not found` });
     }
-  } else {
-    const tickets = await ticketService.getAllTickets();
-    if (tickets) {
-      return res.status(200).json(tickets);
-    } else {
-      return res.status(400).json({ message: "Internal server error" });
-    }
   }
 });
 
-// get unprocessed tickets
+// get unprocessed tickets - only manager
 router.get("/unprocessed", async (req, res) => {
+  if (req.user.role !== "manager") {
+    return res.status(403).json({ message: "Forbidden: Managers only" });
+  }
   const tickets = await ticketService.getUnprocessedTickets();
   if (tickets) {
     return res.status(200).json(tickets);
@@ -35,10 +38,13 @@ router.get("/unprocessed", async (req, res) => {
   }
 });
 
-// get ticket by id
+// get ticket by id - only manager or if ticket created by logged in user
 router.get("/:ticketId", async (req, res) => {
   const ticketId = req.params.ticketId;
   const ticket = await ticketService.getTicketById(ticketId);
+  if (req.user.role !== "manager" && req.user.username !== ticket.username) {
+    return res.status(403).json({ message: "Forbidden: Managers only" });
+  }
   if (ticket) {
     res.status(200).json(ticket);
   } else {
@@ -46,9 +52,10 @@ router.get("/:ticketId", async (req, res) => {
   }
 });
 
-// submit ticket
+// submit ticket - gets username from logged in user
 router.post("/", async (req, res) => {
-  const ticket = await ticketService.submitTicket(req.body);
+  const username = req.user.username;
+  const ticket = await ticketService.submitTicket(req.body, username);
   if (ticket) {
     res
       .status(201)
@@ -58,8 +65,12 @@ router.post("/", async (req, res) => {
   }
 });
 
-// process ticket
+// process ticket - only managers
 router.patch("/:ticketId", async (req, res) => {
+  if (req.user.role !== "manager") {
+    return res.status(403).json({ message: "Forbidden: Managers only" });
+  }
+
   const ticketId = req.params.ticketId;
   const newStatus = req.body.status;
   const ticket = await ticketService.processTicket(ticketId, newStatus);

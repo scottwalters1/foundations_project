@@ -1,2 +1,7 @@
 2025-09-10T14:24:08.685Z [info]: Incoming GET : /tickets
 2025-09-10T14:28:08.188Z [info]: Incoming GET : /tickets
+2025-09-12T19:09:28.894Z [info]: Incoming POST : /auth/login
+2025-09-12T19:10:32.527Z [info]: Incoming POST : /auth/login
+2025-09-12T19:11:14.353Z [info]: Incoming POST : /auth/login
+2025-09-12T19:12:23.064Z [info]: Incoming POST : /auth/login
+2025-09-12T19:12:33.567Z [info]: Incoming GET : /tickets

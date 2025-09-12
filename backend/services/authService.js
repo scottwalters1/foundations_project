@@ -1,5 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const { logger } = require("../util/logger");
+
 const userRepo = require("../repositories/userRepository");
 const User = require("../models/User");
 
@@ -21,8 +23,11 @@ async function register(user) {
     });
 
     const addedUser = await userRepo.createUser(userToAdd);
-    // logger here instead
+    logger.info(`Creating new user: ${JSON.stringify(addedUser)}`);
     return addedUser;
+  } else {
+    logger.info(`Invalid username or password: ${JSON.stringify(user)}`);
+    return null;
   }
 }
 
@@ -41,15 +46,9 @@ async function userInDB(user) {
 async function login(username, password) {
   const user = await userRepo.getUserByUsername(username);
   if (!user) throw new Error("User not found");
-
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) throw new Error("Invalid password");
-
-  const token = jwt.sign({ sub: user.username }, process.env.JWT_SECRET, {
-    expiresIn: "15m",
-  });
-
-  return { user, token };
+  return user;
 }
 
 function verifyToken(token) {

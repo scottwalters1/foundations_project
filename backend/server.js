@@ -5,10 +5,11 @@ const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
 const ticketController = require("./controllers/ticketController");
 const authenticateToken = require("./util/jwt");
-const logger = require("./util/logger");
+const { loggerMiddleware } = require("./util/logger");
 
 const app = express();
 app.use(express.json());
+app.use(loggerMiddleware);
 
 // this should be moved to logger.js
 // function loggerMiddleware(req, res, next) {
@@ -34,7 +35,9 @@ app.get("/health", (req, res) => res.json({ status: "API is running" }));
 
 // Protected route
 app.get("/profile", authenticateToken, (req, res) => {
-  res.json({ message: `Hello, ${req.user.username} with the role ${req.user.role}` });
+  res.json({
+    message: `Hello, ${req.user.username} with the role ${req.user.role}`,
+  });
   console.log(req.user);
 });
 

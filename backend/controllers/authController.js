@@ -31,13 +31,14 @@ function validatePostUser(req, res, next) {
 
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  const data = await authService.login(username, password);
-  if (data) {
+  const user = await authService.login(username, password);
+  console.log(user);
+  if (user) {
     // maybe want to put role in the token too
     const token = jwt.sign(
       {
-        username: data.user.username,
-        role: data.user.role,
+        username: user.username,
+        role: user.role,
       },
       process.env.JWT_SECRET,
       {
