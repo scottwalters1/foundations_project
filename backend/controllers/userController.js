@@ -16,4 +16,17 @@ router.get("/:username", async (req, res) => {
   }
 });
 
+// delete user by username - managers only
+router.delete("/:username", async (req, res) => {
+  if (req.user.role !== "manager") {
+    return res.status(403).json({ message: "Forbidden: Managers only" });
+  }
+  const user = await userService.deleteUserByUsername(req.params);
+  if (user) {
+    res.status(200).json(user);
+  } else {
+    res.status(404).json({message: "User not found"});
+  }
+});
+
 module.exports = router;

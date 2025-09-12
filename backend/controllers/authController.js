@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
+const {logger} = require("../util/logger");
 
 const { setToken }  = require("../util/token");
 
@@ -32,7 +33,6 @@ function validatePostUser(req, res, next) {
 router.post("/login", async (req, res) => {
   const { username, password } = req.body;
   const user = await authService.login(username, password);
-  console.log(user);
   if (user) {
     // maybe want to put role in the token too
     const token = jwt.sign(
@@ -46,6 +46,7 @@ router.post("/login", async (req, res) => {
       }
     );
     setToken(token);
+    logger.info(`Logged in user: ${username}`);
     res.status(200).json({ message: "you have logged in", token });
   } else {
     res.status(401).json({ message: "invalid login" });

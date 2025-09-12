@@ -5,3 +5,20 @@
 2025-09-12T19:11:14.353Z [info]: Incoming POST : /auth/login
 2025-09-12T19:12:23.064Z [info]: Incoming POST : /auth/login
 2025-09-12T19:12:33.567Z [info]: Incoming GET : /tickets
+2025-09-12T19:22:35.492Z [info]: Incoming DELETE : /users/Alice
+2025-09-12T19:22:44.054Z [info]: Incoming POST : /auth/login
+2025-09-12T19:22:47.520Z [info]: Incoming DELETE : /users/Alice
+2025-09-12T19:23:01.146Z [info]: Incoming POST : /auth/login
+2025-09-12T19:23:20.146Z [info]: Incoming DELETE : /users/Alice
+2025-09-12T19:23:36.901Z [info]: Incoming POST : /auth/login
+2025-09-12T19:23:43.709Z [info]: Incoming DELETE : /users/Alice
+2025-09-12T19:26:02.529Z [info]: Incoming POST : /auth/register
+2025-09-12T19:26:02.911Z [info]: Creating new user: {"username":"Alice","password":"$2b$10$iPZVMfAXc180LTx3EZL8euwC8ndi8zLGTN3fxa65prJPJVTHmghpW","role":"employee","createdAt":1757705162861}
+2025-09-12T19:26:08.884Z [info]: Incoming POST : /auth/login
+2025-09-12T19:26:18.258Z [info]: Incoming DELETE : /users/Alice
+2025-09-12T19:30:46.385Z [info]: Incoming POST : /auth/login
+2025-09-12T19:30:46.660Z [info]: Logged in user: John
+2025-09-12T19:32:14.092Z [info]: Incoming POST : /auth/register
+2025-09-12T19:32:14.472Z [info]: Creating new user: Alice
+2025-09-12T19:32:19.357Z [info]: Incoming POST : /auth/register
+2025-09-12T19:32:19.384Z [info]: Username already registered

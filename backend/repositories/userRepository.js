@@ -1,4 +1,4 @@
-const { PutCommand, GetCommand } = require("@aws-sdk/lib-dynamodb");
+const { PutCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const documentClient = require("../db/dynamoClient");
 
 // using USERS_TABLE env var, string if it is falsy
@@ -34,7 +34,23 @@ async function getUserByUsername(username) {
   }
 }
 
+async function deleteUserByUsername(username) {
+  const command = new DeleteCommand({
+    TableName: USERS_TABLE,
+    Key: { username },
+    ReturnValues: "ALL_OLD", // return the deleted item
+  });
+  try {
+    const data = await documentClient.send(command);
+    return data.Attributes; // not .Item
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+}
+
 module.exports = {
   createUser,
   getUserByUsername,
+  deleteUserByUsername
 };

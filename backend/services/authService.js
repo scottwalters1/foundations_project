@@ -9,7 +9,7 @@ async function register(user) {
   // add validate user
   if (await userInDB(user)) {
     // add logger here
-    console.log("Username already registered");
+    logger.info("Username already registered");
     return null;
   }
   if (validateUser(user)) {
@@ -23,7 +23,7 @@ async function register(user) {
     });
 
     const addedUser = await userRepo.createUser(userToAdd);
-    logger.info(`Creating new user: ${JSON.stringify(addedUser)}`);
+    logger.info(`Creating new user: ${user.username}`);
     return addedUser;
   } else {
     logger.info(`Invalid username or password: ${JSON.stringify(user)}`);
