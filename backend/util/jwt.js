@@ -1,4 +1,5 @@
 const jwt = require("jsonwebtoken");
+const { getToken } = require("../util/token");
 
 const {logger} = require("./logger");
 
@@ -8,18 +9,24 @@ async function authenticateToken(req, res, next){
 
     const authHeader = req.headers["authorization"];
     // && syntax: if expr1 is truthy, returns expr2
-    const token = authHeader && authHeader.split(" ")[1];
+
+    // uncomment once frontend feeds in token
+    // const token = authHeader && authHeader.split(" ")[1];
+
+    // development purposes
+    const token = getToken();
+    console.log(token);
 
 
     if(!token){
-        res.status(400).json({message: "forbidden access"});
+        return res.status(401).json({message: "forbidden access"});
     }else{
         const user = await decodeJWT(token);
         if(user){
             req.user = user; // You generally should not modify the incoming req
             next();
         }else{
-            res.status(400).json({message: "Bad JWT"});
+            return res.status(400).json({message: "Bad JWT"});
         }
     }
 }
@@ -28,7 +35,7 @@ async function decodeJWT(token){
     try{
         const user = await jwt.verify(token, process.env.JWT_SECRET);
         return user;
-    }catch(error){
+    }catch(err){
         logger.error(err);
         return null;
     }

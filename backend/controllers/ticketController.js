@@ -3,9 +3,6 @@ const router = express.Router();
 
 const ticketService = require("../services/ticketService");
 
-// change to passing bodies here, not extracting attrs.
-// extract in service.
-
 // get all tickets or tickets by username
 router.get("/", async (req, res) => {
   const { username } = req.query;

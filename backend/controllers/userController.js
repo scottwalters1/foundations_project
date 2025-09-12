@@ -5,6 +5,9 @@ const userService = require("../services/userService");
 
 // get user by username
 router.get("/:username", async (req, res) => {
+  if (req.user.role !== "manager") {
+    return res.status(403).json({ message: "Forbidden: Managers only" });
+  }
   const user = await userService.getUserByUsername(req.params);
   if (user) {
     res.status(200).json(user);

@@ -21,8 +21,8 @@ app.use(express.json());
 // “If the client sends JSON, automatically parse it into a JavaScript object and put it on req.body.”
 // bodyParser is in curriculum, but is only for older express versions. now main functions built in
 
-app.use("/users", userController);
-app.use("/tickets", ticketController);
+app.use("/users", authenticateToken, userController);
+app.use("/tickets", authenticateToken, ticketController);
 app.use("/auth", authController);
 
 // Public routes
@@ -34,7 +34,7 @@ app.get("/health", (req, res) => res.json({ status: "API is running" }));
 
 // Protected route
 app.get("/profile", authenticateToken, (req, res) => {
-  res.json({ message: `Hello, ${req.user.username}` });
+  res.json({ message: `Hello, ${req.user.username} with the role ${req.user.role}` });
   console.log(req.user);
 });
 

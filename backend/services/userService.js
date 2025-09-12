@@ -1,9 +1,8 @@
 const userRepository = require("../repositories/userRepository");
-const User = require("../models/User");
 
-function getUserByUsername(data) {
+function getUserByUsername(params) {
   // change this to separate username and validate maybe
-  return userRepository.getUserByUsername(data.username);
+  return userRepository.getUserByUsername(params.username);
 }
 
 module.exports = {

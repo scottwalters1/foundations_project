@@ -49,7 +49,7 @@ async function login(username, password) {
     expiresIn: "15m",
   });
 
-  return { token };
+  return { user, token };
 }
 
 function verifyToken(token) {
