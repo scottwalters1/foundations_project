@@ -28,11 +28,7 @@ async function getUserByUsername(username) {
   try {
     const data = await documentClient.send(command);
     const user = data.Item;
-    // returning without password
-    // revisit: find a way to not return password without breaking login
-    // const { password, ...safeUser} = user;
     return user;
-    return safeUser;
   } catch (error) {
     console.error(error);
     return null;

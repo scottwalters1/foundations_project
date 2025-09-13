@@ -2,7 +2,11 @@ const userRepository = require("../repositories/userRepository");
 
 async function getUserByUsername(params) {
   // change this to separate username and validate maybe
-  const user = await userRepository.getUserByUsername(params.username);
+  const username = params.username;
+  if (username === "" || typeof username !== 'string') {
+    throw new Error("Invalid username");
+  }
+  const user = await userRepository.getUserByUsername(username);
   if (!user) return null;
   return sanitizeUser(user);
 }

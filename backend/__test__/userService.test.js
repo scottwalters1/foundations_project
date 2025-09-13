@@ -9,10 +9,11 @@ beforeEach(() => {
 });
 
 describe("User Service Tests", () => {
-  test("getUserByUsername should return the user", async () => {
+  test("getUserByUsername should return the user without password field", async () => {
     userRepository.getUserByUsername.mockResolvedValue({
       createdAt: 1757705534436,
       username: "Alice",
+      password: "AlicesPassword",
       role: "employee",
     });
 
@@ -43,5 +44,23 @@ describe("User Service Tests", () => {
       "Nonexistentuser"
     );
     expect(userRepository.getUserByUsername).toHaveBeenCalledTimes(1);
+  });
+
+  test("getUserByUsername should handle empty username", async () => {
+    // userRepository.getUserByUsername.mockResolvedValue(null);
+
+    await expect(
+      userService.getUserByUsername({ username: "" })
+    ).rejects.toThrow("Invalid username");
+
+  });
+
+  test("getUserByUsername should handle non-string username", async () => {
+    // userRepository.getUserByUsername.mockResolvedValue(null);
+
+    await expect(
+      userService.getUserByUsername({ username: 1 })
+    ).rejects.toThrow("Invalid username");
+
   });
 });
