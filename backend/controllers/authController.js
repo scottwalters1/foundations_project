@@ -31,6 +31,7 @@ function validatePostUser(req, res, next) {
 }
 
 router.post("/login", async (req, res) => {
+  console.log(req.body);
   const { username, password } = req.body;
   const user = await authService.login(username, password);
   if (user) {
@@ -48,6 +49,8 @@ router.post("/login", async (req, res) => {
     setToken(token);
     logger.info(`Logged in user: ${username}`);
     res.status(200).json({ message: "you have logged in", token });
+    // redirecting 
+    // res.redirect('../../frontend/auth/register.html');
   } else {
     res.status(401).json({ message: "invalid login" });
   }
