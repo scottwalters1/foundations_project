@@ -62,3 +62,60 @@
 2025-09-13T19:44:24.984Z [info]: Incoming POST : /auth/login
 2025-09-13T19:44:25.314Z [info]: Logged in user: John
 2025-09-13T19:44:27.587Z [info]: Incoming GET : /users/Alic
+2025-09-15T00:07:32.934Z [info]: Incoming POST : /auth/login
+2025-09-15T00:07:33.274Z [info]: Logged in user: John
+2025-09-15T00:08:33.994Z [info]: Incoming POST : /auth/register
+2025-09-15T00:08:34.310Z [info]: Creating new user: Kristy
+2025-09-15T00:10:53.027Z [info]: Creating new user: exampleUsername
+2025-09-15T00:11:15.973Z [info]: Creating new user: exampleUsername
+2025-09-15T00:14:12.927Z [info]: Incoming POST : /auth/register
+2025-09-15T00:14:13.224Z [info]: Creating new user: exampleUsername
+2025-09-15T00:15:27.720Z [info]: Creating new user: exampleUsername
+2025-09-15T00:16:39.104Z [info]: Creating new user: exampleUsername
+2025-09-15T00:17:41.933Z [info]: Creating new user: exampleUsername
+2025-09-15T00:18:33.504Z [info]: Creating new user: exampleUsername
+2025-09-15T00:20:28.718Z [info]: Incoming POST : /auth/register
+2025-09-15T00:20:28.960Z [info]: Username already registered
+2025-09-15T00:20:47.260Z [info]: Incoming POST : /auth/register
+2025-09-15T00:20:47.411Z [info]: Creating new user: exampleUsername
+2025-09-15T00:20:56.666Z [info]: Creating new user: exampleUsername
+2025-09-15T00:22:42.160Z [info]: Creating new user: exampleUsername
+2025-09-15T00:24:13.068Z [info]: Creating new user: exampleUsername
+2025-09-15T00:25:44.096Z [info]: Creating new user: exampleUsername
+2025-09-15T00:26:20.871Z [info]: Creating new user: exampleUsername
+2025-09-15T00:26:45.565Z [info]: Creating new user: exampleUsername
+2025-09-15T00:28:18.217Z [info]: Creating new user: exampleUsername
+2025-09-15T00:28:18.293Z [info]: Creating new user: exampleUsername
+2025-09-15T00:30:23.543Z [info]: Creating new user: exampleUsername
+2025-09-15T00:30:23.619Z [info]: Creating new user: exampleUsername
+2025-09-15T00:30:23.685Z [info]: Creating new user: Alice
+2025-09-15T00:30:42.948Z [info]: Creating new user: exampleUsername
+2025-09-15T00:30:43.019Z [info]: Creating new user: exampleUsername
+2025-09-15T00:30:43.084Z [info]: Creating new user: Alice
+2025-09-15T00:31:27.790Z [info]: Creating new user: exampleUsername
+2025-09-15T00:31:27.863Z [info]: Creating new user: exampleUsername
+2025-09-15T00:31:27.929Z [info]: Creating new user: Alice
+2025-09-15T00:34:49.777Z [info]: Creating new user: exampleUsername
+2025-09-15T00:34:49.849Z [info]: Creating new user: exampleUsername
+2025-09-15T00:35:12.454Z [info]: Creating new user: exampleUsername
+2025-09-15T00:35:12.527Z [info]: Creating new user: exampleUsername
+2025-09-15T00:36:07.411Z [info]: Incoming POST : /auth/login
+2025-09-15T00:36:07.705Z [info]: Logged in user: John
+2025-09-15T00:36:23.808Z [info]: Incoming GET : /users/Alice
+2025-09-15T00:36:55.532Z [info]: Creating new user: exampleUsername
+2025-09-15T00:36:55.605Z [info]: Creating new user: exampleUsername
+2025-09-15T00:36:55.607Z [info]: Username already registered
+2025-09-15T00:39:06.583Z [info]: Creating new user: exampleUsername
+2025-09-15T00:39:06.655Z [info]: Creating new user: exampleUsername
+2025-09-15T00:39:06.657Z [info]: Username already registered
+2025-09-15T00:39:06.658Z [info]: Invalid username or password: {"username":"Alice","password":""}
+2025-09-15T00:42:28.125Z [info]: Creating new user: exampleUsername
+2025-09-15T00:42:28.200Z [info]: Creating new user: exampleUsername
+2025-09-15T00:42:28.202Z [info]: Username already registered
+2025-09-15T00:42:28.203Z [info]: Invalid username or password: {"username":"Alice","password":""}
+2025-09-15T00:42:28.204Z [info]: Invalid username or password: {"username":"","password":"AlicesPassword"}
+2025-09-15T00:45:07.422Z [info]: Creating new user: exampleUsername
+2025-09-15T00:45:07.496Z [info]: Creating new user: exampleUsername
+2025-09-15T00:45:07.498Z [info]: Username already registered
+2025-09-15T00:45:07.499Z [info]: Invalid username or password: {"username":"Alice","password":""}
+2025-09-15T00:45:07.499Z [info]: Invalid username or password: {"username":"","password":"AlicesPassword"}

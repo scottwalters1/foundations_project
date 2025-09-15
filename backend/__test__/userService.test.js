@@ -1,8 +1,8 @@
-// Whenever something requires userRepo, give it a mocked version
-jest.mock("../repositories/userRepository");
 const userRepository = require("../repositories/userRepository");
 const userService = require("../services/userService");
-// maybe put in describe block
+
+// Whenever something requires userRepo, give it a mocked version
+jest.mock("../repositories/userRepository");
 
 beforeEach(() => {
   jest.resetAllMocks();
@@ -52,7 +52,6 @@ describe("User Service Tests", () => {
     await expect(
       userService.getUserByUsername({ username: "" })
     ).rejects.toThrow("Invalid username");
-
   });
 
   test("getUserByUsername should handle non-string username", async () => {
@@ -61,6 +60,27 @@ describe("User Service Tests", () => {
     await expect(
       userService.getUserByUsername({ username: 1 })
     ).rejects.toThrow("Invalid username");
+  });
 
+  test("deleteUserByUsername should call repository with correct username and return result", async () => {
+    userRepository.deleteUserByUsername.mockResolvedValue(true);
+
+    const result = await userService.deleteUserByUsername({
+      username: "Alice",
+    });
+
+    expect(result).toBe(true);
+    expect(userRepository.deleteUserByUsername).toHaveBeenCalledWith("Alice");
+    expect(userRepository.deleteUserByUsername).toHaveBeenCalledTimes(1);
+  });
+
+  test("deleteUserByUsername should handle repository returning false", async () => {
+    userRepository.deleteUserByUsername.mockResolvedValue(false);
+
+    const result = await userService.deleteUserByUsername({ username: "Bob" });
+
+    expect(result).toBe(false);
+    expect(userRepository.deleteUserByUsername).toHaveBeenCalledWith("Bob");
+    expect(userRepository.deleteUserByUsername).toHaveBeenCalledTimes(1);
   });
 });

@@ -2,13 +2,12 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { logger } = require("../util/logger");
 
-const userRepo = require("../repositories/userRepository");
+const userRepository = require("../repositories/userRepository");
 const User = require("../models/User");
 
 async function register(user) {
   // add validate user
   if (await userInDB(user)) {
-    // add logger here
     logger.info("Username already registered");
     return null;
   }
@@ -22,7 +21,7 @@ async function register(user) {
       createdAt: Date.now(),
     });
 
-    const addedUser = await userRepo.createUser(userToAdd);
+    const addedUser = await userRepository.createUser(userToAdd);
     logger.info(`Creating new user: ${user.username}`);
     return addedUser;
   } else {
@@ -39,12 +38,12 @@ function validateUser(user) {
 }
 
 async function userInDB(user) {
-  const userInDB = await userRepo.getUserByUsername(user.username);
+  const userInDB = await userRepository.getUserByUsername(user.username);
   return userInDB;
 }
 
 async function login(username, password) {
-  const user = await userRepo.getUserByUsername(username);
+  const user = await userRepository.getUserByUsername(username);
   if (!user) throw new Error("User not found");
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) throw new Error("Invalid password");
