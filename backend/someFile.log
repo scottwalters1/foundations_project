@@ -217,3 +217,87 @@
 2025-09-15T03:03:58.848Z [info]: Incoming GET : /frontend/login?username=Alice&password=AlicesPassword
 2025-09-15T03:03:58.925Z [info]: Incoming GET : /static/login.js
 2025-09-15T03:03:59.025Z [info]: Incoming GET : /favicon.ico
+2025-09-15T13:04:39.573Z [info]: Incoming GET : /tickets
+2025-09-15T13:04:43.904Z [info]: Incoming POST : /auth/login
+2025-09-15T13:04:44.185Z [info]: Logged in user: John
+2025-09-15T13:04:48.009Z [info]: Incoming GET : /tickets
+2025-09-15T13:09:32.399Z [info]: Incoming GET : /tickets/unprocessed
+2025-09-15T13:09:37.297Z [info]: Incoming POST : /auth/login
+2025-09-15T13:09:37.586Z [info]: Logged in user: John
+2025-09-15T13:09:42.141Z [info]: Incoming GET : /tickets/unprocessed
+2025-09-15T13:16:14.821Z [info]: Incoming POST : /auth/login
+2025-09-15T13:16:15.111Z [info]: Logged in user: John
+2025-09-15T13:16:28.754Z [info]: Incoming GET : /tickets/Alice
+2025-09-15T13:17:06.211Z [info]: Incoming GET : /tickets
+2025-09-15T13:17:18.444Z [info]: Incoming POST : /auth/login
+2025-09-15T13:17:18.542Z [info]: Logged in user: Alice
+2025-09-15T13:17:22.498Z [info]: Incoming GET : /tickets
+2025-09-15T13:18:12.086Z [info]: Incoming POST : /auth/login
+2025-09-15T13:18:12.186Z [info]: Logged in user: Harry
+2025-09-15T13:18:15.536Z [info]: Incoming GET : /tickets
+2025-09-15T13:20:59.925Z [info]: Incoming POST : /auth/login
+2025-09-15T13:21:00.248Z [info]: Logged in user: Harry
+2025-09-15T13:21:03.946Z [info]: Incoming POST : /tickets
+2025-09-18T15:28:44.383Z [info]: Incoming GET : /health
+2025-09-18T15:28:55.923Z [info]: Incoming POST : /auth/register
+2025-09-18T15:28:56.236Z [info]: Creating new user: Larry
+2025-09-18T15:29:45.998Z [info]: Incoming POST : /auth/register
+2025-09-18T15:29:46.202Z [info]: Username already registered
+2025-09-18T15:30:02.604Z [info]: Incoming POST : /auth/register
+2025-09-18T15:30:02.866Z [info]: Username already registered
+2025-09-18T15:34:58.669Z [info]: Incoming POST : /auth/register
+2025-09-18T15:34:58.941Z [info]: Username already registered
+2025-09-18T15:38:22.347Z [info]: Incoming POST : /auth/register
+2025-09-18T15:38:22.723Z [info]: Creating new user: Larry
+2025-09-18T15:39:17.157Z [info]: Incoming POST : /auth/register
+2025-09-18T15:39:17.630Z [info]: Creating new user: Larry
+2025-09-18T19:38:29.432Z [info]: Incoming POST : /auth/register
+2025-09-18T19:38:29.755Z [info]: Creating new user: Larry
+2025-09-18T19:38:37.836Z [info]: Incoming POST : /auth/register
+2025-09-18T19:38:37.879Z [info]: Username already registered
+2025-09-18T19:40:12.569Z [info]: Incoming POST : /auth/register
+2025-09-18T19:40:12.818Z [info]: Username already registered
+2025-09-18T19:41:14.251Z [info]: Incoming POST : /auth/register
+2025-09-18T19:41:14.498Z [info]: Username already registered
+2025-09-18T19:42:44.360Z [info]: Incoming POST : /auth/register
+2025-09-18T19:42:44.550Z [info]: Username already registered
+2025-09-18T19:43:51.464Z [info]: Incoming POST : /auth/register
+2025-09-18T19:43:51.660Z [info]: Username already registered
+2025-09-18T19:44:07.313Z [info]: Incoming POST : /auth/register
+2025-09-18T19:44:07.506Z [info]: Username already registered
+2025-09-18T19:49:11.079Z [info]: Incoming POST : /auth/register
+2025-09-18T19:49:11.343Z [info]: Username already registered
+2025-09-18T19:52:36.054Z [info]: Incoming POST : /auth/register
+2025-09-18T19:52:36.256Z [info]: Username already registered
+2025-09-18T19:52:36.257Z [info]: Username already registered
+2025-09-18T19:52:53.601Z [info]: Incoming POST : /auth/register
+2025-09-18T19:52:53.869Z [info]: Username already registered
+2025-09-18T19:53:11.482Z [info]: Incoming POST : /auth/register
+2025-09-18T19:53:11.737Z [error]: Username already registered
+2025-09-18T19:54:57.513Z [info]: Incoming POST : /auth/register
+2025-09-18T19:54:57.769Z [warn]: Username already registered
+2025-09-18T19:55:20.862Z [info]: Incoming POST : /auth/register
+2025-09-18T19:57:29.165Z [info]: Incoming POST : /auth/register
+2025-09-18T19:57:29.431Z [warn]: Username already registered
+2025-09-18T19:58:44.131Z [info]: Incoming POST : /auth/register
+2025-09-18T19:58:44.620Z [info]: Creating new user: Larry
+2025-09-18T19:59:09.189Z [info]: Incoming POST : /auth/register
+2025-09-18T19:59:09.825Z [info]: Creating new user: Larry
+2025-09-18T19:59:38.428Z [info]: Incoming POST : /auth/register
+2025-09-18T19:59:38.794Z [info]: Creating new user: Larry
+2025-09-18T20:00:38.733Z [info]: Incoming POST : /auth/register
+2025-09-18T20:00:38.958Z [info]: Creating new user: Larry
+2025-09-18T20:00:50.383Z [info]: Incoming POST : /auth/register
+2025-09-18T20:00:50.455Z [warn]: Username already registered
+2025-09-18T20:09:40.113Z [info]: Incoming POST : /auth/login
+2025-09-18T20:09:40.414Z [info]: Logged in user: Harry
+2025-09-18T20:09:48.675Z [info]: Incoming POST : /auth/login
+2025-09-18T20:10:01.496Z [info]: Incoming POST : /auth/login
+2025-09-18T20:10:01.602Z [info]: Logged in user: John
+2025-09-18T20:14:26.434Z [info]: Incoming POST : /auth/login
+2025-09-18T20:14:30.840Z [info]: Incoming POST : /auth/login
+2025-09-18T20:14:30.943Z [info]: Logged in user: John
+2025-09-18T20:16:13.188Z [info]: Incoming POST : /auth/login
+2025-09-18T20:16:13.516Z [info]: Logged in user: John as manager
+2025-09-18T20:16:43.925Z [info]: Incoming POST : /auth/login
+2025-09-18T20:16:44.194Z [info]: Logged in John as manager

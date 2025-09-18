@@ -1,5 +1,5 @@
 class Ticket {
-  constructor({ ticketId, username, amount, description }) {
+  constructor({ ticketId, username, amount, description, createdAt }) {
     if (amount < 0) throw new Error("Invalid amount");
 
     if (description.length <= 0) throw new Error("Please enter a description");
@@ -8,6 +8,7 @@ class Ticket {
     this.amount = amount;
     this.description = description;
     this.status = "pending";
+    this.createdAt = createdAt;
   }
 }
 

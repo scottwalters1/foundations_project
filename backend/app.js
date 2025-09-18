@@ -6,6 +6,7 @@ const authController = require("./controllers/authController");
 const ticketController = require("./controllers/ticketController");
 const authenticateToken = require("./util/jwt");
 const { loggerMiddleware } = require("./util/logger");
+const { errorMiddleware } = require("./util/appError");
 
 
 
@@ -20,9 +21,12 @@ app.use(express.urlencoded({ extended: true }));
 // bodyParser is in curriculum, but is only for older express versions. now main functions built in
 
 app.use(loggerMiddleware);
+
 app.use("/auth", authController);
 app.use("/users", authenticateToken, userController);
 app.use("/tickets", authenticateToken, ticketController);
+// error middleware after all others
+app.use(errorMiddleware);
 // frontend path here
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend', 'index.html'));

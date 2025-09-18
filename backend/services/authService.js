@@ -1,15 +1,15 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const { logger } = require("../util/logger");
+const { AppError } = require("../util/appError");
 
 const userRepository = require("../repositories/userRepository");
 const User = require("../models/User");
 
 async function register(user) {
-  // add validate user
   if (await userInDB(user)) {
-    logger.info("Username already registered");
-    return null;
+    logger.warn("Username already registered");
+    throw new AppError("Username already registered", 400);
   }
   if (validateUser(user)) {
     const saltRounds = 10;
@@ -25,8 +25,8 @@ async function register(user) {
     logger.info(`Creating new user: ${user.username}`);
     return addedUser;
   } else {
-    logger.info(`Invalid username or password: ${JSON.stringify(user)}`);
-    return null;
+    logger.warn("Invalid username or password");
+    throw new AppError("Invalid username or password", 400);
   }
 }
 
@@ -44,9 +44,10 @@ async function userInDB(user) {
 
 async function login(username, password) {
   const user = await userRepository.getUserByUsername(username);
-  if (!user) throw new Error("User not found");
   const valid = await bcrypt.compare(password, user.password);
-  if (!valid) throw new Error("Invalid password");
+  if (!valid || !user) {
+    throw new AppError("Invalid credentials", 400);
+  } 
   return user;
 }
 

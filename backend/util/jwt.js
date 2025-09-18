@@ -17,6 +17,8 @@ async function authenticateToken(req, res, next){
     const token = getToken();
     // console.log(token);
 
+    // maybe get token from cookie here
+
 
     if(!token){
         return res.status(401).json({message: "forbidden access"});

@@ -1,20 +1,18 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const {logger} = require("../util/logger");
+const { logger } = require("../util/logger");
 
-const { setToken }  = require("../util/token");
+const { setToken } = require("../util/token");
 
 const authService = require("../services/authService");
 
-router.post("/register", validatePostUser, async (req, res) => {
-  const user = await authService.register(req.body);
-  if (user) {
-    res
-      .status(201)
-      .json({ message: `Registered User ${JSON.stringify(user)}` });
-  } else {
-    res.status(400).json({ message: "user not created", data: req.body });
+router.post("/register", validatePostUser, async (req, res, next) => {
+  try {
+    const user = await authService.register(req.body);
+    res.status(201).json({ message: `Registered User ${user.username}` });
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -30,12 +28,10 @@ function validatePostUser(req, res, next) {
   }
 }
 
-router.post("/login", async (req, res) => {
-  console.log(req.body);
+router.post("/login", async (req, res, next) => {
   const { username, password } = req.body;
-  const user = await authService.login(username, password);
-  if (user) {
-    // maybe want to put role in the token too
+  try {
+    const user = await authService.login(username, password);
     const token = jwt.sign(
       {
         username: user.username,
@@ -47,12 +43,13 @@ router.post("/login", async (req, res) => {
       }
     );
     setToken(token);
-    logger.info(`Logged in user: ${username}`);
-    res.status(200).json({ message: "you have logged in", token });
-    // redirecting 
-    // res.redirect('../../frontend/auth/register.html');
-  } else {
-    res.status(401).json({ message: "invalid login" });
+    logger.info(`Logged in ${username} as ${user.role}`);
+    res.status(202).json({
+      token,
+      message: `Logged in ${username} as ${user.role}`,
+    });
+  } catch (err) {
+    next(err);
   }
 });
 
