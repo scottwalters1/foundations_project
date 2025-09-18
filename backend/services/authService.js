@@ -44,10 +44,12 @@ async function userInDB(user) {
 
 async function login(username, password) {
   const user = await userRepository.getUserByUsername(username);
+  if (!user) throw new AppError("Invalid credentials", 400);
+
   const valid = await bcrypt.compare(password, user.password);
-  if (!valid || !user) {
-    throw new AppError("Invalid credentials", 400);
-  } 
+  if (!valid) throw new AppError("Invalid credentials", 400);
+
+  logger.info(`Logged in ${username} as ${user.role}`);
   return user;
 }
 

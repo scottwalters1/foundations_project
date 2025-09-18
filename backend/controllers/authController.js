@@ -1,10 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const jwt = require("jsonwebtoken");
-const { logger } = require("../util/logger");
 
 const { setToken } = require("../util/token");
-
 const authService = require("../services/authService");
 
 router.post("/register", validatePostUser, async (req, res, next) => {
@@ -24,7 +22,7 @@ function validatePostUser(req, res, next) {
   } else {
     res
       .status(400)
-      .json({ message: "invalid username or password", data: user });
+      .json({ message: "invalid username or password" });
   }
 }
 
@@ -43,7 +41,6 @@ router.post("/login", async (req, res, next) => {
       }
     );
     setToken(token);
-    logger.info(`Logged in ${username} as ${user.role}`);
     res.status(202).json({
       token,
       message: `Logged in ${username} as ${user.role}`,

@@ -32,11 +32,15 @@ describe("Authorization Service Tests", () => {
     );
     expect(registeredUser.role).toBe("employee");
 
-    expect(logger.info).toHaveBeenCalledWith(`Creating new user: ${user.username}`);
+    expect(logger.info).toHaveBeenCalledWith(
+      `Creating new user: ${user.username}`
+    );
     expect(logger.info).toHaveBeenCalledTimes(1);
-    expect(userRepository.createUser).toHaveBeenCalledWith(expect.objectContaining({
-      username: "exampleUsername",
-    }));
+    expect(userRepository.createUser).toHaveBeenCalledWith(
+      expect.objectContaining({
+        username: "exampleUsername",
+      })
+    );
     expect(userRepository.createUser).toHaveBeenCalledTimes(1);
   });
 
@@ -61,54 +65,84 @@ describe("Authorization Service Tests", () => {
     );
     expect(registeredUser.role).toBe("manager");
 
-    expect(logger.info).toHaveBeenCalledWith(`Creating new user: ${user.username}`);
+    expect(logger.info).toHaveBeenCalledWith(
+      `Creating new user: ${user.username}`
+    );
     expect(logger.info).toHaveBeenCalledTimes(1);
-    expect(userRepository.createUser).toHaveBeenCalledWith(expect.objectContaining({
-      username: "exampleUsername",
-    }));
+    expect(userRepository.createUser).toHaveBeenCalledWith(
+      expect.objectContaining({
+        username: "exampleUsername",
+      })
+    );
     expect(userRepository.createUser).toHaveBeenCalledTimes(1);
   });
 
-  test("Given a username which already exists in DB, register should return null", async () => {
+  test("Given a username which already exists in DB, register should throw AppError", async () => {
+    // Arrange
     userRepository.getUserByUsername.mockResolvedValue({
       createdAt: 1757705534436,
       username: "Alice",
       role: "employee",
     });
-    let user = {
+
+    const user = {
       username: "Alice",
       password: "AlicesPassword",
     };
 
-    let registeredUser = await authService.register(user);
-    expect(registeredUser).toBe(null);
+    // Act
+    const registerPromise = authService.register(user);
 
-    expect(logger.info).toHaveBeenCalledWith("Username already registered");
-    expect(logger.info).toHaveBeenCalledTimes(1);
+    // Assert
+    await expect(registerPromise).rejects.toMatchObject({
+      message: "Username already registered",
+      statusCode: 400,
+    });
+
+    // Logger assertions
+    expect(logger.warn).toHaveBeenCalledWith("Username already registered");
+    expect(logger.warn).toHaveBeenCalledTimes(1);
+
+    // Repository assertions
     expect(userRepository.getUserByUsername).toHaveBeenCalledWith("Alice");
     expect(userRepository.getUserByUsername).toHaveBeenCalledTimes(1);
   });
 
-  test("Given invalid username or password, register should return null", async () => {
+  test("Given invalid username or password, register should throw AppError", async () => {
+    // Arrange
     let user = {
       username: "Alice",
       password: "",
     };
 
-    let registeredUser = await authService.register(user);
-    expect(registeredUser).toBe(null);
+    // Act
+    const registerPromise1 = authService.register(user);
 
+    // Assert
+    await expect(registerPromise1).rejects.toMatchObject({
+      message: "Invalid username or password",
+      statusCode: 400,
+    });
+
+    // Logger assertion
+    expect(logger.warn).toHaveBeenCalledWith("Invalid username or password");
+
+    // Next invalid case
     user = {
       username: "",
       password: "AlicesPassword",
     };
 
-    registeredUser = await authService.register(user);
-    expect(registeredUser).toBe(null);
+    // Act
+    const registerPromise2 = authService.register(user);
 
-    expect(logger.info).toHaveBeenCalledWith(
-      `Invalid username or password: ${JSON.stringify(user)}`
-    );
-    expect(logger.info).toHaveBeenCalledTimes(2);
+    // Assert
+    await expect(registerPromise2).rejects.toMatchObject({
+      message: "Invalid username or password",
+      statusCode: 400,
+    });
+
+    // Logger assertions
+    expect(logger.warn).toHaveBeenCalledTimes(2);
   });
 });

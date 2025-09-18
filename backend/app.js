@@ -8,18 +8,11 @@ const authenticateToken = require("./util/jwt");
 const { loggerMiddleware } = require("./util/logger");
 const { errorMiddleware } = require("./util/appError");
 
-
-
 const app = express();
 app.use(express.json());
-const path = require('path'); 
-
+const path = require("path");
+// for x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// express.json() is the piece that says:
-// “If the client sends JSON, automatically parse it into a JavaScript object and put it on req.body.”
-// bodyParser is in curriculum, but is only for older express versions. now main functions built in
-
 app.use(loggerMiddleware);
 
 app.use("/auth", authController);
@@ -27,15 +20,16 @@ app.use("/users", authenticateToken, userController);
 app.use("/tickets", authenticateToken, ticketController);
 // error middleware after all others
 app.use(errorMiddleware);
+
 // frontend path here
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend', 'index.html'));
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "index.html"));
 });
-app.get('/frontend/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend', 'auth/login.html'));
+app.get("/frontend/login", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend", "auth/login.html"));
 });
 
-app.use('/static', express.static(path.join(__dirname, '../frontend/js')));
+app.use("/static", express.static(path.join(__dirname, "../frontend/js")));
 // Public routes
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
 

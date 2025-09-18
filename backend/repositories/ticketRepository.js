@@ -23,15 +23,15 @@ async function getAllTickets() {
   }
 }
 
-async function getUnprocessedTickets() {
+async function getTicketsByStatus(status) {
   const command = new ScanCommand({
     TableName: TICKETS_TABLE,
-    FilterExpression: "#s = :pending",
+    FilterExpression: "#s = :statusVal",
     ExpressionAttributeNames: {
       "#s": "status",
     },
     ExpressionAttributeValues: {
-      ":pending": "pending",
+      ":statusVal": status,
     },
   });
 
@@ -39,7 +39,7 @@ async function getUnprocessedTickets() {
     const data = await documentClient.send(command);
     return data.Items;
   } catch (error) {
-    console.error(error);
+    console.error(`Error fetching tickets with status ${status}:`, error);
     return null;
   }
 }
@@ -119,8 +119,9 @@ async function processTicket(ticketId, newStatus) {
 module.exports = {
   submitTicket,
   getAllTickets,
-  getUnprocessedTickets,
+  // getUnprocessedTickets,
   getTicketsByUsername,
   processTicket,
   getTicketById,
+  getTicketsByStatus,
 };

@@ -301,3 +301,166 @@
 2025-09-18T20:16:13.516Z [info]: Logged in user: John as manager
 2025-09-18T20:16:43.925Z [info]: Incoming POST : /auth/login
 2025-09-18T20:16:44.194Z [info]: Logged in John as manager
+2025-09-18T20:26:02.239Z [info]: Incoming POST : /auth/register
+2025-09-18T20:26:02.645Z [info]: Creating new user: Larry
+2025-09-18T20:26:07.163Z [info]: Incoming POST : /auth/register
+2025-09-18T20:26:07.201Z [warn]: Username already registered
+2025-09-18T20:29:08.918Z [info]: Incoming POST : /auth/register
+2025-09-18T20:29:29.605Z [info]: Incoming POST : /auth/register
+2025-09-18T20:30:30.989Z [info]: Incoming POST : /auth/register
+2025-09-18T20:30:31.327Z [warn]: Username already registered
+2025-09-18T20:30:35.196Z [info]: Incoming POST : /auth/register
+2025-09-18T20:30:35.254Z [warn]: Username already registered
+2025-09-18T20:30:39.615Z [info]: Incoming POST : /auth/register
+2025-09-18T20:30:57.134Z [info]: Incoming POST : /auth/register
+2025-09-18T20:32:39.579Z [info]: Incoming POST : /auth/register
+2025-09-18T20:32:40.005Z [info]: Creating new user: Larry
+2025-09-18T20:32:52.641Z [info]: Incoming POST : /auth/register
+2025-09-18T20:32:52.674Z [warn]: Username already registered
+2025-09-18T20:33:01.445Z [info]: Incoming POST : /auth/register
+2025-09-18T20:33:10.889Z [info]: Incoming POST : /auth/register
+2025-09-18T20:35:12.054Z [info]: Incoming POST : /auth/login
+2025-09-18T20:35:12.393Z [info]: Logged in John as manager
+2025-09-18T20:36:04.659Z [info]: Incoming POST : /auth/login
+2025-09-18T20:37:04.953Z [info]: Incoming POST : /auth/login
+2025-09-18T20:37:17.558Z [info]: Incoming POST : /auth/login
+2025-09-18T20:37:34.892Z [info]: Incoming POST : /auth/login
+2025-09-18T20:37:35.011Z [info]: Logged in John as manager
+2025-09-18T20:37:38.342Z [info]: Incoming POST : /auth/login
+2025-09-18T20:37:41.109Z [info]: Incoming POST : /auth/login
+2025-09-18T20:38:44.278Z [info]: Incoming POST : /auth/login
+2025-09-18T20:39:26.321Z [info]: Incoming POST : /auth/login
+2025-09-18T20:40:24.349Z [info]: Incoming POST : /auth/login
+2025-09-18T20:40:30.604Z [info]: Incoming POST : /auth/login
+2025-09-18T20:41:12.494Z [info]: Incoming POST : /auth/login
+2025-09-18T20:41:48.652Z [info]: Incoming POST : /auth/login
+2025-09-18T20:45:16.387Z [info]: Incoming POST : /auth/login
+2025-09-18T20:45:44.270Z [info]: Incoming POST : /auth/register
+2025-09-18T20:45:44.639Z [info]: Creating new user: Larry
+2025-09-18T20:45:59.269Z [info]: Incoming POST : /auth/register
+2025-09-18T20:45:59.418Z [info]: Creating new user: Larry
+2025-09-18T20:46:08.164Z [info]: Incoming POST : /auth/register
+2025-09-18T20:46:08.225Z [warn]: Username already registered
+2025-09-18T20:46:13.436Z [info]: Incoming POST : /auth/register
+2025-09-18T20:46:16.350Z [info]: Incoming POST : /auth/register
+2025-09-18T20:46:23.346Z [info]: Incoming POST : /auth/login
+2025-09-18T20:46:23.442Z [info]: Logged in John as manager
+2025-09-18T20:47:03.323Z [info]: Incoming POST : /auth/login
+2025-09-18T20:47:09.591Z [info]: Incoming POST : /auth/login
+2025-09-18T20:47:12.706Z [info]: Incoming POST : /auth/login
+2025-09-18T20:49:56.987Z [info]: Incoming POST : /tickets
+2025-09-18T20:51:18.070Z [info]: Incoming POST : /tickets
+2025-09-18T20:55:38.616Z [info]: Incoming POST : /tickets
+2025-09-18T20:55:52.475Z [info]: Incoming POST : /auth/login
+2025-09-18T20:55:52.804Z [info]: Logged in John as manager
+2025-09-18T20:56:00.600Z [info]: Incoming POST : /tickets
+2025-09-18T20:56:18.186Z [info]: Incoming POST : /auth/login
+2025-09-18T20:56:18.464Z [info]: Logged in John as manager
+2025-09-18T20:56:29.489Z [info]: Incoming POST : /tickets
+2025-09-18T21:00:58.640Z [info]: Incoming POST : /tickets
+2025-09-18T21:01:05.560Z [info]: Incoming POST : /auth/login
+2025-09-18T21:01:05.892Z [info]: Logged in John as manager
+2025-09-18T21:02:40.068Z [info]: Incoming POST : /tickets
+2025-09-18T21:03:07.534Z [info]: Incoming POST : /tickets
+2025-09-18T21:03:16.835Z [info]: Incoming POST : /tickets
+2025-09-18T21:03:38.022Z [info]: Incoming POST : /tickets
+2025-09-18T21:05:17.474Z [info]: Incoming POST : /tickets
+2025-09-18T21:05:21.547Z [info]: Incoming POST : /auth/login
+2025-09-18T21:05:21.817Z [info]: Logged in John as manager
+2025-09-18T21:05:38.047Z [info]: Incoming POST : /tickets
+2025-09-18T21:05:48.021Z [info]: Incoming POST : /tickets
+2025-09-18T21:06:13.037Z [info]: Incoming POST : /tickets
+2025-09-18T21:07:48.605Z [info]: Incoming POST : /tickets
+2025-09-18T21:07:52.090Z [info]: Incoming POST : /auth/login
+2025-09-18T21:07:52.363Z [info]: Logged in John as manager
+2025-09-18T21:07:55.226Z [info]: Incoming POST : /tickets
+2025-09-18T21:08:16.570Z [info]: Incoming POST : /tickets
+2025-09-18T21:21:07.403Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:21:52.856Z [info]: Incoming POST : /auth/login
+2025-09-18T21:21:53.127Z [info]: Logged in John as manager
+2025-09-18T21:21:59.716Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:22:59.553Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:23:03.926Z [info]: Incoming POST : /auth/login
+2025-09-18T21:23:04.195Z [info]: Logged in John as manager
+2025-09-18T21:23:09.368Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:27:02.314Z [info]: Incoming POST : /auth/login
+2025-09-18T21:27:02.572Z [info]: Logged in Alice as employee
+2025-09-18T21:27:31.535Z [info]: Incoming PATCH : /tickets/a16d033f-7365-4d45-962a-5675abf7ac8c
+2025-09-18T21:27:56.556Z [info]: Incoming POST : /auth/login
+2025-09-18T21:27:56.818Z [info]: Logged in John as manager
+2025-09-18T21:28:02.460Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:28:57.787Z [info]: Incoming POST : /auth/login
+2025-09-18T21:28:57.884Z [info]: Logged in Alice as employee
+2025-09-18T21:29:04.522Z [info]: Incoming PATCH : /tickets/a16d033f-7365-4d45-962a-5675abf7ac8c
+2025-09-18T21:30:31.320Z [info]: Incoming PATCH : /tickets/e1b4899e-e7f0-4e96-a903-be8063b13538
+2025-09-18T21:30:36.101Z [info]: Incoming POST : /auth/login
+2025-09-18T21:30:36.200Z [info]: Logged in John as manager
+2025-09-18T21:30:39.530Z [info]: Incoming PATCH : /tickets/e1b4899e-e7f0-4e96-a903-be8063b13538
+2025-09-18T21:35:24.735Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T21:35:29.463Z [info]: Incoming POST : /auth/login
+2025-09-18T21:35:29.730Z [info]: Logged in John as manager
+2025-09-18T21:35:34.223Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T21:40:00.357Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T21:40:51.175Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T21:42:03.108Z [info]: Incoming POST : /auth/login
+2025-09-18T21:42:03.204Z [info]: Logged in Alice as employee
+2025-09-18T21:42:22.096Z [info]: Incoming PATCH : /tickets/75e1cdde-1936-4753-ad05-337b46a4d225
+2025-09-18T21:42:27.349Z [info]: Incoming POST : /auth/login
+2025-09-18T21:42:27.443Z [info]: Logged in John as manager
+2025-09-18T21:42:42.151Z [info]: Incoming PATCH : /tickets/75e1cdde-1936-4753-ad05-337b46a4d225
+2025-09-18T21:44:25.418Z [info]: Incoming POST : /auth/login
+2025-09-18T21:44:25.654Z [info]: Logged in Alice as employee
+2025-09-18T21:44:30.092Z [info]: Incoming PATCH : /tickets/75e1cdde-1936-4753-ad05-337b46a4d225
+2025-09-18T21:45:13.423Z [info]: Incoming POST : /auth/login
+2025-09-18T21:45:13.526Z [info]: Logged in John as manager
+2025-09-18T21:45:45.335Z [info]: Incoming PATCH : /tickets/9196adea-ee06-4825-aa0b-bcde107dc85e
+2025-09-18T21:45:54.762Z [info]: Incoming POST : /auth/login
+2025-09-18T21:45:55.031Z [info]: Logged in John as manager
+2025-09-18T21:45:59.601Z [info]: Incoming PATCH : /tickets/9196adea-ee06-4825-aa0b-bcde107dc85e
+2025-09-18T21:46:50.497Z [info]: Incoming POST : /auth/login
+2025-09-18T21:46:50.835Z [info]: Logged in Alice as employee
+2025-09-18T21:46:57.071Z [info]: Incoming POST : /tickets
+2025-09-18T21:47:11.548Z [info]: Incoming POST : /auth/login
+2025-09-18T21:47:11.655Z [info]: Logged in John as manager
+2025-09-18T21:47:20.824Z [info]: Incoming PATCH : /tickets/7be99905-b61e-43c1-810c-d78db92c6596
+2025-09-18T21:49:21.273Z [info]: Incoming POST : /auth/login
+2025-09-18T21:49:21.548Z [info]: Logged in Alice as employee
+2025-09-18T21:49:25.141Z [info]: Incoming POST : /tickets
+2025-09-18T21:49:32.965Z [info]: Incoming POST : /auth/login
+2025-09-18T21:49:33.064Z [info]: Logged in John as manager
+2025-09-18T21:49:37.599Z [info]: Incoming PATCH : /tickets/7be99905-b61e-43c1-810c-d78db92c6596
+2025-09-18T21:49:43.108Z [info]: Incoming PATCH : /tickets/599fb04e-3aca-4b2b-b4e8-c30690ec27a9
+2025-09-18T21:50:18.533Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:50:43.018Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:51:02.996Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:51:06.937Z [info]: Incoming POST : /auth/login
+2025-09-18T21:51:07.197Z [info]: Logged in John as manager
+2025-09-18T21:51:13.416Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-18T21:52:10.174Z [info]: Incoming POST : /tickets
+2025-09-18T21:54:00.870Z [info]: Incoming POST : /auth/login
+2025-09-18T21:54:01.088Z [info]: Logged in John as manager
+2025-09-18T21:54:20.520Z [info]: Incoming PATCH : /tickets/a16d033f-7365-4d45-962a-5675abf7ac8c
+2025-09-18T21:54:35.495Z [info]: Incoming PATCH : /tickets/a16d033f-7365-4d45-962a-5675abf7ac8c
+2025-09-18T21:54:56.526Z [info]: Incoming PATCH : /tickets/a16d033f-7365-4d45-962a-5675abf7ac8c
+2025-09-18T21:58:32.882Z [info]: Incoming POST : /auth/login
+2025-09-18T21:58:33.156Z [info]: Logged in John as manager
+2025-09-18T21:58:36.032Z [info]: Incoming PATCH : /tickets/1
+2025-09-18T21:58:47.121Z [info]: Incoming PATCH : /tickets/1
+2025-09-18T21:59:00.016Z [info]: Incoming PATCH : /tickets/1
+2025-09-18T21:59:59.539Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T22:00:35.595Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T22:00:47.610Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-18T22:01:04.273Z [info]: Incoming PATCH : /tickets/cd818830-0cfd-4da7-a9c0-a7d514998488
+2025-09-18T22:06:01.489Z [info]: Incoming POST : /auth/login
+2025-09-18T22:06:01.751Z [info]: Logged in Alice as employee
+2025-09-18T22:06:36.663Z [info]: Incoming GET : /tickets
+2025-09-18T22:07:28.604Z [info]: Incoming GET : /tickets
+2025-09-18T22:07:34.264Z [info]: Incoming POST : /auth/login
+2025-09-18T22:07:34.360Z [info]: Logged in John as manager
+2025-09-18T22:07:38.795Z [info]: Incoming GET : /tickets
+2025-09-18T22:12:43.294Z [info]: Incoming PATCH : /tickets/3658d285-46ca-4c65-acf0-b47354077b06
+2025-09-18T22:12:47.946Z [info]: Incoming POST : /auth/login
+2025-09-18T22:12:48.229Z [info]: Logged in John as manager
+2025-09-18T22:12:50.368Z [info]: Incoming PATCH : /tickets/3658d285-46ca-4c65-acf0-b47354077b06
+2025-09-18T22:12:59.881Z [info]: Incoming PATCH : /tickets3c8c3d1e-1128-4b1e-a4de-8a176492fd6d
+2025-09-18T22:13:10.323Z [info]: Incoming PATCH : /tickets/3c8c3d1e-1128-4b1e-a4de-8a176492fd6d

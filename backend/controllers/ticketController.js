@@ -3,38 +3,31 @@ const router = express.Router();
 
 const ticketService = require("../services/ticketService");
 
-// Manager returns every ticket
+// Manager returns every ticket, or by status
 // Employee returns their own tickets
-router.get("/", async (req, res) => {
-  if (req.user.role === "manager") {
-    const tickets = await ticketService.getAllTickets();
-    if (tickets) {
-      return res.status(200).json(tickets);
-    } else {
-      return res.status(400).json({ message: "Internal server error" });
-    }
-  } else {
-    const tickets = await ticketService.getTicketsByUsername(req.user.username);
-    if (tickets) {
-      return res.status(200).json(tickets);
-    } else {
-      return res
-        .status(400)
-        .json({ message: `Tickets from ${username} not found` });
-    }
-  }
-});
+router.get("/", async (req, res, next) => {
+  try {
+    let tickets;
 
-// get unprocessed tickets - only manager
-router.get("/unprocessed", async (req, res) => {
-  if (req.user.role !== "manager") {
-    return res.status(403).json({ message: "Forbidden: Managers only" });
-  }
-  const tickets = await ticketService.getUnprocessedTickets();
-  if (tickets) {
-    return res.status(200).json(tickets);
-  } else {
-    return res.status(400).json({ message: "Internal server error" });
+    if (req.user.role === "manager") {
+      const { status } = req.query;
+
+      if (status) {
+        tickets = await ticketService.getTicketsByStatus(status);
+      } else {
+        tickets = await ticketService.getAllTickets();
+      }
+    } else {
+      tickets = await ticketService.getTicketsByUsername(req.user.username);
+    }
+
+    if (tickets && tickets.length > 0) {
+      return res.status(200).json(tickets);
+    } else {
+      return res.status(200).json([]); // safer than 404 for list endpoints
+    }
+  } catch (err) {
+    next(err);
   }
 });
 
@@ -53,15 +46,16 @@ router.get("/:ticketId", async (req, res) => {
 });
 
 // submit ticket - gets username from logged in user
-router.post("/", async (req, res) => {
-  const username = req.user.username;
-  const ticket = await ticketService.submitTicket(req.body, username);
-  if (ticket) {
+router.post("/", async (req, res, next) => {
+  try {
+    const username = req.user.username;
+    const ticket = await ticketService.submitTicket(req.body, username);
+
     res
       .status(201)
       .json({ message: `Created Ticket ${JSON.stringify(ticket)}` });
-  } else {
-    res.status(500).json({ message: "Ticket not created", data: req.body });
+  } catch (err) {
+    next(err); // Passes error to your custom error middleware
   }
 });
 
@@ -75,7 +69,12 @@ router.patch("/:ticketId", async (req, res) => {
   const newStatus = req.body.status;
   const ticket = await ticketService.processTicket(ticketId, newStatus);
   if (ticket) {
-    res.status(200).json(ticket);
+    // Adding on manager who processed ticket
+    const ticketWithManager = {
+      ...ticket,
+      processedBy: req.user.username,
+    };
+    res.status(202).json(ticketWithManager);
   } else {
     res.status(400).json({ message: `Ticket ${ticketId} not found` });
   }
