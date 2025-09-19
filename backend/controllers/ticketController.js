@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const { AppError } = require("../util/appError");
+
 const ticketService = require("../services/ticketService");
 
 // Manager returns every ticket, or by status
@@ -50,6 +52,9 @@ router.get("/:ticketId", async (req, res, next) => {
 // submit ticket - gets username from logged in user
 router.post("/", async (req, res, next) => {
   try {
+    if (req.user.role !== "employee") {
+      return res.status(403).json({ message: "Forbidden: Employees only" });
+    }
     const username = req.user.username;
     const ticket = await ticketService.submitTicket(req.body, username);
 
@@ -62,7 +67,6 @@ router.post("/", async (req, res, next) => {
 });
 
 // process ticket - only managers
-
 router.patch("/:ticketId", async (req, res, next) => {
   try {
     if (req.user.role !== "manager") {

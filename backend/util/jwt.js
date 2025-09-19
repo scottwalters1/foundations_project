@@ -12,7 +12,7 @@ async function authenticateToken(req, res, next){
     // uncomment once frontend feeds in token
     // const token = authHeader && authHeader.split(" ")[1];
 
-    // development purposes
+    // demonstration purposes
     const token = getToken();
 
     if(!token){

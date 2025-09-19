@@ -657,3 +657,101 @@
 2025-09-19T13:17:52.400Z [info]: Incoming POST : /auth/login
 2025-09-19T13:17:52.667Z [info]: Logged in Kristy as employee
 2025-09-19T13:17:56.567Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T13:47:49.119Z [info]: Incoming POST : /auth/register
+2025-09-19T13:47:49.471Z [info]: Creating new user: Larry
+2025-09-19T13:47:55.237Z [info]: Incoming POST : /auth/login
+2025-09-19T13:47:55.347Z [info]: Logged in Kristy as employee
+2025-09-19T13:47:59.501Z [info]: Incoming POST : /auth/login
+2025-09-19T13:47:59.830Z [warn]: Invalid credentials
+2025-09-19T13:48:03.124Z [info]: Incoming POST : /auth/register
+2025-09-19T13:48:03.159Z [warn]: Username already registered
+2025-09-19T13:48:21.479Z [info]: Incoming POST : /tickets
+2025-09-19T13:48:21.527Z [info]: Ticket submitted
+2025-09-19T13:49:47.111Z [info]: Incoming POST : /auth/login
+2025-09-19T13:49:47.470Z [info]: Logged in Kristy as employee
+2025-09-19T13:49:50.509Z [info]: Incoming POST : /tickets
+2025-09-19T13:49:50.513Z [warn]: Ticket cannot be submitted without a numerical amount greater than 0
+2025-09-19T13:49:54.265Z [info]: Incoming POST : /tickets
+2025-09-19T13:49:54.267Z [warn]: Ticket cannot be submitted without a description
+2025-09-19T13:49:58.557Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T13:50:10.533Z [info]: Incoming POST : /auth/login
+2025-09-19T13:50:10.639Z [info]: Logged in Dave as manager
+2025-09-19T13:50:14.249Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T14:01:54.359Z [info]: Incoming POST : /auth/register
+2025-09-19T14:01:54.750Z [info]: Creating new user: Larry
+2025-09-19T14:02:58.913Z [info]: Incoming POST : /auth/login
+2025-09-19T14:02:59.244Z [info]: Logged in Dave as manager
+2025-09-19T14:03:01.992Z [info]: Incoming POST : /tickets
+2025-09-19T14:03:02.054Z [info]: Ticket submitted
+2025-09-19T14:03:29.790Z [info]: Incoming POST : /auth/login
+2025-09-19T14:03:30.051Z [info]: Logged in Dave as manager
+2025-09-19T14:03:32.271Z [info]: Incoming POST : /tickets
+2025-09-19T14:04:21.857Z [info]: Incoming POST : /auth/login
+2025-09-19T14:04:22.138Z [info]: Logged in Dave as manager
+2025-09-19T14:04:24.965Z [info]: Incoming POST : /tickets
+2025-09-19T14:06:43.647Z [info]: Incoming POST : /auth/login
+2025-09-19T14:06:43.945Z [info]: Logged in Kristy as employee
+2025-09-19T14:06:49.979Z [info]: Incoming PATCH : /tickets/a3f2bde7-7dc6-46a4-a1e0-5eaed1fedd36
+2025-09-19T14:07:30.688Z [info]: Incoming POST : /auth/login
+2025-09-19T14:07:31.009Z [info]: Logged in Dave as manager
+2025-09-19T14:07:36.873Z [info]: Incoming POST : /auth/login
+2025-09-19T14:07:36.973Z [info]: Logged in Kristy as employee
+2025-09-19T14:07:40.613Z [info]: Incoming PATCH : /tickets/a3f2bde7-7dc6-46a4-a1e0-5eaed1fedd36
+2025-09-19T14:08:48.984Z [info]: Incoming POST : /auth/register
+2025-09-19T14:08:49.387Z [info]: Creating new user: Larry
+2025-09-19T14:08:59.669Z [info]: Incoming POST : /auth/login
+2025-09-19T14:08:59.796Z [info]: Logged in Kristy as employee
+2025-09-19T14:09:19.272Z [info]: Incoming POST : /auth/login
+2025-09-19T14:09:19.387Z [info]: Logged in Dave as manager
+2025-09-19T14:09:21.646Z [info]: Incoming POST : /tickets
+2025-09-19T14:10:23.003Z [info]: Incoming POST : /auth/login
+2025-09-19T14:10:23.274Z [info]: Logged in Kristy as employee
+2025-09-19T14:10:29.184Z [info]: Incoming POST : /tickets
+2025-09-19T14:10:29.237Z [info]: Ticket submitted
+2025-09-19T14:10:31.945Z [info]: Incoming POST : /auth/login
+2025-09-19T14:10:32.044Z [info]: Logged in Dave as manager
+2025-09-19T14:10:33.963Z [info]: Incoming POST : /tickets
+2025-09-19T14:10:38.466Z [info]: Incoming POST : /auth/login
+2025-09-19T14:10:38.565Z [info]: Logged in Kristy as employee
+2025-09-19T14:10:47.856Z [info]: Incoming GET : /tickets/
+2025-09-19T14:10:52.686Z [info]: Incoming POST : /auth/login
+2025-09-19T14:10:52.963Z [info]: Logged in Dave as manager
+2025-09-19T14:10:58.289Z [info]: Incoming GET : /tickets
+2025-09-19T14:11:27.585Z [info]: Incoming POST : /auth/login
+2025-09-19T14:11:27.683Z [info]: Logged in Dave as manager
+2025-09-19T14:11:30.486Z [info]: Incoming PATCH : /tickets/a3f2bde7-7dc6-46a4-a1e0-5eaed1fedd36
+2025-09-19T14:11:30.527Z [warn]: Invalid new status
+2025-09-19T14:11:41.423Z [info]: Incoming PATCH : /tickets/a3f2bde7-7dc6-46a4-a1e0-5eaed1fedd36
+2025-09-19T14:11:41.455Z [info]: Ticket processed
+2025-09-19T14:12:20.460Z [info]: Incoming GET : /tickets/
+2025-09-19T14:12:26.278Z [info]: Incoming POST : /auth/login
+2025-09-19T14:12:26.375Z [info]: Logged in Kristy as employee
+2025-09-19T14:12:31.416Z [info]: Incoming GET : /tickets/
+2025-09-19T14:12:42.685Z [info]: Incoming POST : /auth/login
+2025-09-19T14:12:42.780Z [info]: Logged in Alice as employee
+2025-09-19T14:12:51.420Z [info]: Incoming GET : /tickets/
+2025-09-19T14:13:13.834Z [info]: Incoming PATCH : /tickets/1
+2025-09-19T14:13:17.900Z [info]: Incoming POST : /auth/login
+2025-09-19T14:13:18.059Z [info]: Logged in Dave as manager
+2025-09-19T14:13:20.453Z [info]: Incoming PATCH : /tickets/1
+2025-09-19T14:13:20.480Z [warn]: Ticket not found
+2025-09-19T14:13:25.391Z [info]: Incoming PATCH : /tickets/f98c52d3-c38e-4d4f-a693-0fde15933547
+2025-09-19T14:13:25.424Z [warn]: Ticket not found
+2025-09-19T14:18:44.918Z [info]: Incoming POST : /auth/login
+2025-09-19T14:18:45.187Z [info]: Logged in Alice as employee
+2025-09-19T14:18:51.641Z [info]: Incoming GET : /tickets/
+2025-09-19T14:19:00.465Z [info]: Incoming GET : /tickets
+2025-09-19T14:23:11.297Z [info]: Incoming POST : /auth/login
+2025-09-19T14:23:11.573Z [info]: Logged in Dave as manager
+2025-09-19T14:23:15.186Z [info]: Incoming POST : /tickets
+2025-09-19T14:23:20.828Z [info]: Incoming POST : /auth/login
+2025-09-19T14:23:20.926Z [info]: Logged in Alice as employee
+2025-09-19T14:23:24.566Z [info]: Incoming POST : /tickets
+2025-09-19T14:23:24.616Z [info]: Ticket submitted
+2025-09-19T14:55:21.935Z [info]: Incoming POST : /auth/login
+2025-09-19T14:55:22.252Z [info]: Logged in Alice as employee
+2025-09-19T14:55:26.076Z [info]: Incoming POST : /auth/register
+2025-09-19T14:55:30.177Z [info]: Incoming POST : /auth/login
+2025-09-19T14:55:30.277Z [info]: Logged in Dave as manager
+2025-09-19T14:55:33.348Z [info]: Incoming POST : /auth/register
+2025-09-19T14:55:33.495Z [info]: Creating new user: Larry
