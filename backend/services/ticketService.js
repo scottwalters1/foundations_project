@@ -27,10 +27,15 @@ async function getTicketById(ticketId) {
 }
 
 async function submitTicket(data, username) {
-  if (data.amount === undefined || data.amount <= 0) {
-    logger.warn("Ticket cannot be submitted without an amount greater than 0");
+  if (
+    data.amount === undefined ||
+    typeof data.amount !== "number" ||
+    isNaN(data.amount) ||
+    data.amount <= 0
+  ) {
+    logger.warn("Ticket cannot be submitted without a numerical amount greater than 0");
     throw new AppError(
-      "Ticket cannot be submitted without an amount greater than 0",
+      "Ticket cannot be submitted without a numerical amount greater than 0",
       400
     );
   }
@@ -55,7 +60,7 @@ async function processTicket(ticketId, newStatus) {
 
   if (!ticketToProcess) {
     logger.warn("Ticket not found");
-    throw new AppError("Ticket not found", 404); // 404 Not Found
+    throw new AppError(`Ticket ${ticketId} not found`, 404); // 404 Not Found
   }
   if (ticketToProcess.status !== "pending") {
     logger.warn("Ticket already processed");

@@ -6,6 +6,8 @@ const {
 } = require("@aws-sdk/lib-dynamodb");
 const documentClient = require("../db/dynamoClient");
 
+const { logger } = require("../util/logger");
+
 const TICKETS_TABLE = process.env.TICKETS_TABLE || "Tickets";
 
 async function getAllTickets() {
@@ -15,10 +17,9 @@ async function getAllTickets() {
 
   try {
     const data = await documentClient.send(command);
-
     return data.Items;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -39,7 +40,7 @@ async function getTicketsByStatus(status) {
     const data = await documentClient.send(command);
     return data.Items;
   } catch (error) {
-    console.error(`Error fetching tickets with status ${status}:`, error);
+    logger.error(`Error fetching tickets with status ${status}:`, error);
     return null;
   }
 }
@@ -55,7 +56,7 @@ async function getTicketById(ticketId) {
 
     return data.Item;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -73,7 +74,7 @@ async function getTicketsByUsername(username) {
     const data = await documentClient.send(command);
     return data.Items;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -88,7 +89,7 @@ async function submitTicket(ticket) {
     await documentClient.send(command);
     return ticket;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -111,7 +112,7 @@ async function processTicket(ticketId, newStatus) {
     const response = await documentClient.send(command);
     return response.Attributes;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -119,7 +120,6 @@ async function processTicket(ticketId, newStatus) {
 module.exports = {
   submitTicket,
   getAllTickets,
-  // getUnprocessedTickets,
   getTicketsByUsername,
   processTicket,
   getTicketById,

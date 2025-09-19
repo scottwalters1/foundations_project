@@ -357,27 +357,32 @@ describe("Ticket Service Tests", () => {
   });
 
   test("submitTicket should throw AppError if amount is undefined or <= 0", async () => {
-    const invalidTicket = {
-      amount: 0,
-      description: "Lunch",
-    };
     const username = "Alice";
 
-    const ticket = ticketService.submitTicket(invalidTicket, username);
+    const invalidTickets = [
+      { amount: 0, description: "Lunch" },
+      { amount: -5, description: "Dinner" },
+      { description: "Snack" },
+    ];
 
-    await expect(ticket).rejects.toMatchObject({
-      message: "Ticket cannot be submitted without an amount greater than 0",
-      statusCode: 400,
-    });
+    for (const invalidTicket of invalidTickets) {
+      const ticketPromise = ticketService.submitTicket(invalidTicket, username);
 
-    expect(logger.warn).toHaveBeenCalledWith(
-      "Ticket cannot be submitted without an amount greater than 0"
-    );
-    expect(logger.warn).toHaveBeenCalledTimes(1);
+      await expect(ticketPromise).rejects.toMatchObject({
+        message:
+          "Ticket cannot be submitted without a numerical amount greater than 0",
+        statusCode: 400,
+      });
+
+      expect(logger.warn).toHaveBeenCalledWith(
+        "Ticket cannot be submitted without a numerical amount greater than 0"
+      );
+    }
+
+    expect(logger.warn).toHaveBeenCalledTimes(invalidTickets.length);
   });
 
   test("submitTicket should throw AppError if description is undefined or empty", async () => {
-    // Arrange
     const invalidTicket = {
       amount: 100,
       description: "",
@@ -425,7 +430,7 @@ describe("Ticket Service Tests", () => {
     const ticket = ticketService.processTicket(ticketId, "approved");
 
     await expect(ticket).rejects.toMatchObject({
-      message: "Ticket not found",
+      message: `Ticket ${ticketId} not found`,
       statusCode: 404,
     });
     expect(ticketRepository.getTicketById).toHaveBeenCalledWith(ticketId);

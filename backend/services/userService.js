@@ -1,7 +1,6 @@
 const userRepository = require("../repositories/userRepository");
 
 async function getUserByUsername(params) {
-  // change this to separate username and validate maybe
   const username = params.username;
   if (username === "" || typeof username !== 'string') {
     throw new Error("Invalid username");
@@ -12,7 +11,6 @@ async function getUserByUsername(params) {
 }
 
 function deleteUserByUsername(params) {
-  // change this to separate username and validate maybe
   return userRepository.deleteUserByUsername(params.username);
 }
 

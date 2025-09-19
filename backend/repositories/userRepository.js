@@ -1,7 +1,8 @@
 const { PutCommand, GetCommand, DeleteCommand } = require("@aws-sdk/lib-dynamodb");
 const documentClient = require("../db/dynamoClient");
 
-// using USERS_TABLE env var, string if it is falsy
+const { logger } = require("../util/logger");
+
 const USERS_TABLE = process.env.USERS_TABLE || "Users";
 
 async function createUser(user) {
@@ -14,7 +15,7 @@ async function createUser(user) {
     await documentClient.send(command);
     return user;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -30,7 +31,7 @@ async function getUserByUsername(username) {
     const user = data.Item;
     return user;
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }
@@ -45,7 +46,7 @@ async function deleteUserByUsername(username) {
     const data = await documentClient.send(command);
     return data.Attributes; // not .Item
   } catch (error) {
-    console.error(error);
+    logger.error(error);
     return null;
   }
 }

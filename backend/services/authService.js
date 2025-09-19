@@ -30,10 +30,11 @@ async function register(user) {
   }
 }
 
-// Brian's code - maybe cite
 function validateUser(user) {
-  const usernameResult = user.username.length > 0;
-  const passwordResult = user.password.length > 0;
+  const usernameResult =
+    user.username.length > 0 && !user.username.includes(" ");
+  const passwordResult =
+    user.password.length > 0 && !user.password.includes(" ");
   return usernameResult && passwordResult;
 }
 
@@ -44,16 +45,16 @@ async function userInDB(user) {
 
 async function login(username, password) {
   const user = await userRepository.getUserByUsername(username);
-  if (!user){
+  if (!user) {
     logger.warn("Invalid credentials");
     throw new AppError("Invalid credentials", 400);
-  } 
+  }
 
   const valid = await bcrypt.compare(password, user.password);
   if (!valid) {
     logger.warn("Invalid credentials");
     throw new AppError("Invalid credentials", 400);
-  } 
+  }
 
   logger.info(`Logged in ${username} as ${user.role}`);
   return user;

@@ -22,9 +22,9 @@ router.get("/", async (req, res, next) => {
     }
 
     if (tickets && tickets.length > 0) {
-      return res.status(200).json(tickets);
+      res.status(200).json(tickets);
     } else {
-      return res.status(200).json([]); // safer than 404 for list endpoints
+      res.status(200).json([]);
     }
   } catch (err) {
     next(err);
@@ -43,7 +43,7 @@ router.get("/:ticketId", async (req, res, next) => {
 
     res.status(200).json(ticket);
   } catch (err) {
-    next(err); // handled by AppError middleware
+    next(err);
   }
 });
 
@@ -57,28 +57,30 @@ router.post("/", async (req, res, next) => {
       .status(201)
       .json({ message: `Created Ticket ${JSON.stringify(ticket)}` });
   } catch (err) {
-    next(err); // Passes error to your custom error middleware
+    next(err);
   }
 });
 
 // process ticket - only managers
-router.patch("/:ticketId", async (req, res) => {
-  if (req.user.role !== "manager") {
-    return res.status(403).json({ message: "Forbidden: Managers only" });
-  }
 
-  const ticketId = req.params.ticketId;
-  const newStatus = req.body.status;
-  const ticket = await ticketService.processTicket(ticketId, newStatus);
-  if (ticket) {
-    // Adding on manager who processed ticket
-    const ticketWithManager = {
+router.patch("/:ticketId", async (req, res, next) => {
+  try {
+    if (req.user.role !== "manager") {
+      throw new AppError("Forbidden: Managers only", 403);
+    }
+
+    const ticket = await ticketService.processTicket(
+      req.params.ticketId,
+      req.body.status
+    );
+
+    res.status(202).json({
+      // adding on manager who processed ticket
       ...ticket,
       processedBy: req.user.username,
-    };
-    res.status(202).json(ticketWithManager);
-  } else {
-    res.status(400).json({ message: `Ticket ${ticketId} not found` });
+    });
+  } catch (err) {
+    next(err);
   }
 });
 

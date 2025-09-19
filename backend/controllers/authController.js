@@ -14,7 +14,6 @@ router.post("/register", validatePostUser, async (req, res, next) => {
   }
 });
 
-// Brian's code - maybe cite
 function validatePostUser(req, res, next) {
   const user = req.body;
   if (user.username && user.password) {

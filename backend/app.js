@@ -1,6 +1,5 @@
 require("dotenv").config();
 const express = require("express");
-const bodyParser = require("body-parser");
 const userController = require("./controllers/userController");
 const authController = require("./controllers/authController");
 const ticketController = require("./controllers/ticketController");
@@ -32,14 +31,6 @@ app.use("/static", express.static(path.join(__dirname, "../frontend/js")));
 
 // Public routes
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
-
-// Protected route
-app.get("/profile", authenticateToken, (req, res) => {
-  res.json({
-    message: `Hello, ${req.user.username} with the role ${req.user.role}`,
-  });
-  console.log(req.user);
-});
 
 // Only start server if NOT testing
 if (process.env.NODE_ENV !== "test") {

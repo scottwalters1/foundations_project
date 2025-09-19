@@ -484,3 +484,176 @@
 2025-09-19T01:36:26.391Z [warn]: Ticket not found
 2025-09-19T01:36:26.393Z [warn]: Ticket already processed
 2025-09-19T01:36:26.395Z [warn]: Invalid new status
+2025-09-19T02:52:05.000Z [info]: Incoming POST : /auth/login
+2025-09-19T02:52:05.307Z [info]: Logged in Alice as employee
+2025-09-19T02:52:11.583Z [info]: Incoming POST : /tickets
+2025-09-19T02:52:11.674Z [info]: Ticket submitted
+2025-09-19T02:52:23.454Z [info]: Incoming POST : /auth/login
+2025-09-19T02:52:23.490Z [warn]: Invalid credentials
+2025-09-19T02:52:28.272Z [info]: Incoming POST : /auth/register
+2025-09-19T02:52:28.303Z [warn]: Username already registered
+2025-09-19T02:52:31.730Z [info]: Incoming POST : /auth/register
+2025-09-19T02:52:34.499Z [info]: Incoming POST : /auth/register
+2025-09-19T02:52:40.506Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T02:53:26.827Z [info]: Incoming POST : /auth/login
+2025-09-19T02:53:26.926Z [info]: Logged in John as manager
+2025-09-19T02:53:31.526Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T02:53:36.799Z [info]: Incoming POST : /auth/login
+2025-09-19T02:53:36.890Z [info]: Logged in Alice as employee
+2025-09-19T02:53:40.666Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T11:39:19.370Z [info]: Incoming POST : /auth/login
+2025-09-19T11:39:19.703Z [info]: Logged in Alice as employee
+2025-09-19T11:40:42.584Z [info]: Incoming POST : /tickets
+2025-09-19T11:40:42.628Z [info]: Ticket submitted
+2025-09-19T11:40:58.905Z [info]: Incoming POST : /tickets
+2025-09-19T11:40:58.944Z [info]: Ticket submitted
+2025-09-19T11:41:09.515Z [info]: Incoming POST : /tickets
+2025-09-19T11:41:09.553Z [info]: Ticket submitted
+2025-09-19T11:41:23.592Z [info]: Incoming POST : /tickets
+2025-09-19T11:41:23.628Z [info]: Ticket submitted
+2025-09-19T11:42:08.030Z [info]: Incoming POST : /auth/login
+2025-09-19T11:42:08.131Z [info]: Logged in Bob as employee
+2025-09-19T11:42:22.608Z [info]: Incoming POST : /tickets
+2025-09-19T11:42:22.643Z [info]: Ticket submitted
+2025-09-19T11:42:29.598Z [info]: Incoming POST : /tickets
+2025-09-19T11:42:29.635Z [info]: Ticket submitted
+2025-09-19T11:42:37.807Z [info]: Incoming POST : /tickets
+2025-09-19T11:42:37.848Z [info]: Ticket submitted
+2025-09-19T11:42:47.165Z [info]: Incoming POST : /tickets
+2025-09-19T11:42:47.207Z [info]: Ticket submitted
+2025-09-19T11:43:12.160Z [info]: Incoming POST : /auth/login
+2025-09-19T11:43:12.253Z [info]: Logged in Chuck as employee
+2025-09-19T11:43:21.201Z [info]: Incoming POST : /tickets
+2025-09-19T11:43:21.237Z [info]: Ticket submitted
+2025-09-19T11:44:04.945Z [info]: Incoming POST : /tickets
+2025-09-19T11:44:04.981Z [info]: Ticket submitted
+2025-09-19T11:44:34.924Z [info]: Incoming POST : /auth/login
+2025-09-19T11:44:35.038Z [info]: Logged in Dave as manager
+2025-09-19T11:44:47.038Z [info]: Incoming POST : /auth/login
+2025-09-19T11:44:47.130Z [info]: Logged in Ed as employee
+2025-09-19T11:45:04.862Z [info]: Incoming POST : /tickets
+2025-09-19T11:45:04.901Z [info]: Ticket submitted
+2025-09-19T11:45:14.957Z [info]: Incoming POST : /tickets
+2025-09-19T11:45:14.988Z [info]: Ticket submitted
+2025-09-19T11:45:31.058Z [info]: Incoming POST : /tickets
+2025-09-19T11:45:31.292Z [info]: Ticket submitted
+2025-09-19T11:45:51.915Z [info]: Incoming POST : /auth/login
+2025-09-19T11:45:52.012Z [info]: Logged in Frank as employee
+2025-09-19T11:46:28.670Z [info]: Incoming POST : /auth/login
+2025-09-19T11:46:28.770Z [info]: Logged in Frank as employee
+2025-09-19T11:46:32.195Z [info]: Incoming POST : /tickets
+2025-09-19T11:46:32.230Z [info]: Ticket submitted
+2025-09-19T11:46:41.681Z [info]: Incoming POST : /tickets
+2025-09-19T11:46:41.713Z [info]: Ticket submitted
+2025-09-19T11:46:53.693Z [info]: Incoming POST : /tickets
+2025-09-19T11:46:53.733Z [info]: Ticket submitted
+2025-09-19T11:47:11.026Z [info]: Incoming POST : /auth/login
+2025-09-19T11:47:11.122Z [info]: Logged in Gus as employee
+2025-09-19T11:47:40.560Z [info]: Incoming POST : /tickets
+2025-09-19T11:47:40.602Z [info]: Ticket submitted
+2025-09-19T11:47:51.566Z [info]: Incoming POST : /tickets
+2025-09-19T11:47:51.606Z [info]: Ticket submitted
+2025-09-19T11:48:08.810Z [info]: Incoming POST : /auth/login
+2025-09-19T11:48:08.902Z [info]: Logged in Harry as employee
+2025-09-19T11:48:29.703Z [info]: Incoming POST : /tickets
+2025-09-19T11:48:29.740Z [info]: Ticket submitted
+2025-09-19T11:49:03.432Z [info]: Incoming POST : /auth/login
+2025-09-19T11:49:03.534Z [info]: Logged in Ian as employee
+2025-09-19T11:49:08.168Z [info]: Incoming POST : /tickets
+2025-09-19T11:49:08.205Z [info]: Ticket submitted
+2025-09-19T11:49:18.871Z [info]: Incoming POST : /tickets
+2025-09-19T11:49:18.907Z [info]: Ticket submitted
+2025-09-19T11:49:59.580Z [info]: Incoming POST : /auth/login
+2025-09-19T11:49:59.675Z [info]: Logged in Kristy as employee
+2025-09-19T11:50:12.394Z [info]: Incoming POST : /auth/login
+2025-09-19T11:50:12.615Z [info]: Logged in Kristy as employee
+2025-09-19T11:50:20.594Z [info]: Incoming POST : /tickets
+2025-09-19T11:50:20.632Z [info]: Ticket submitted
+2025-09-19T11:50:29.692Z [info]: Incoming POST : /tickets
+2025-09-19T11:50:29.723Z [info]: Ticket submitted
+2025-09-19T11:50:38.322Z [info]: Incoming POST : /auth/login
+2025-09-19T11:50:38.421Z [info]: Logged in Dave as manager
+2025-09-19T11:51:10.469Z [info]: Incoming PATCH : /tickets/1c0fd49d-c988-44fd-ba25-2c7d2f39f463
+2025-09-19T11:51:10.499Z [info]: Ticket processed
+2025-09-19T11:51:21.345Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T11:54:48.383Z [info]: Incoming POST : /auth/login
+2025-09-19T11:54:48.684Z [info]: Logged in Dave as manager
+2025-09-19T11:54:51.987Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T12:31:41.785Z [info]: Incoming POST : /auth/register
+2025-09-19T12:31:42.119Z [info]: Creating new user: Larry
+2025-09-19T12:33:34.085Z [info]: Incoming POST : /auth/register
+2025-09-19T12:33:34.292Z [warn]: Invalid username or password
+2025-09-19T12:33:48.624Z [info]: Incoming POST : /auth/register
+2025-09-19T12:33:55.547Z [info]: Incoming POST : /auth/register
+2025-09-19T12:33:55.575Z [warn]: Invalid username or password
+2025-09-19T12:34:00.365Z [info]: Incoming POST : /auth/register
+2025-09-19T12:34:00.774Z [info]: Creating new user: Larry
+2025-09-19T12:34:10.590Z [info]: Incoming POST : /auth/login
+2025-09-19T12:34:10.684Z [info]: Logged in Kristy as employee
+2025-09-19T12:36:10.219Z [info]: Incoming POST : /auth/login
+2025-09-19T12:36:10.490Z [info]: Logged in Dave as manager
+2025-09-19T12:36:15.391Z [info]: Incoming POST : /auth/login
+2025-09-19T12:36:15.486Z [info]: Logged in Kristy as employee
+2025-09-19T12:37:06.433Z [info]: Incoming POST : /tickets
+2025-09-19T12:37:06.437Z [warn]: Ticket cannot be submitted without a description
+2025-09-19T12:37:13.694Z [info]: Incoming POST : /tickets
+2025-09-19T12:37:13.696Z [warn]: Ticket cannot be submitted without an amount greater than 0
+2025-09-19T12:37:21.014Z [info]: Incoming POST : /tickets
+2025-09-19T12:37:21.067Z [info]: Ticket submitted
+2025-09-19T12:38:57.281Z [info]: Incoming POST : /auth/login
+2025-09-19T12:38:57.558Z [info]: Logged in Kristy as employee
+2025-09-19T12:39:03.241Z [info]: Incoming POST : /tickets
+2025-09-19T12:39:03.245Z [warn]: Ticket cannot be submitted without an amount greater than 0
+2025-09-19T12:39:34.381Z [info]: Incoming POST : /tickets
+2025-09-19T12:39:38.248Z [info]: Incoming POST : /auth/login
+2025-09-19T12:39:38.522Z [info]: Logged in Kristy as employee
+2025-09-19T12:39:40.610Z [info]: Incoming POST : /tickets
+2025-09-19T12:39:40.658Z [info]: Ticket submitted
+2025-09-19T12:39:59.591Z [info]: Incoming POST : /auth/login
+2025-09-19T12:39:59.695Z [info]: Logged in Dave as manager
+2025-09-19T12:40:24.182Z [info]: Incoming PATCH : /tickets/6a042207-a604-464c-987d-3fd930b06a3b
+2025-09-19T12:40:24.318Z [info]: Ticket processed
+2025-09-19T12:40:37.643Z [info]: Incoming POST : /auth/login
+2025-09-19T12:40:37.748Z [info]: Logged in Kristy as employee
+2025-09-19T12:40:50.757Z [info]: Incoming PATCH : /tickets/a3f2bde7-7dc6-46a4-a1e0-5eaed1fedd36
+2025-09-19T12:42:22.647Z [info]: Incoming POST : /auth/login
+2025-09-19T12:42:22.839Z [info]: Logged in Dave as manager
+2025-09-19T12:42:37.904Z [info]: Incoming POST : /auth/login
+2025-09-19T12:42:38.000Z [info]: Logged in Kristy as employee
+2025-09-19T12:43:03.151Z [info]: Incoming GET : /tickets/
+2025-09-19T12:43:43.642Z [info]: Incoming GET : /tickets/
+2025-09-19T12:43:47.710Z [info]: Incoming POST : /auth/login
+2025-09-19T12:43:47.809Z [info]: Logged in Dave as manager
+2025-09-19T12:43:50.990Z [info]: Incoming GET : /tickets/
+2025-09-19T12:44:06.266Z [info]: Incoming GET : /tickets/?status=pending
+2025-09-19T12:53:57.107Z [info]: Incoming POST : /auth/register
+2025-09-19T12:53:57.637Z [info]: Creating new user: Larry
+2025-09-19T12:54:01.899Z [info]: Incoming POST : /auth/login
+2025-09-19T12:54:01.996Z [info]: Logged in Kristy as employee
+2025-09-19T12:54:05.902Z [info]: Incoming POST : /auth/login
+2025-09-19T12:54:06.000Z [info]: Logged in Dave as manager
+2025-09-19T12:54:12.763Z [info]: Incoming POST : /auth/login
+2025-09-19T12:54:12.798Z [warn]: Invalid credentials
+2025-09-19T12:54:26.737Z [info]: Incoming POST : /tickets
+2025-09-19T12:54:26.885Z [info]: Ticket submitted
+2025-09-19T13:08:50.490Z [info]: Incoming POST : /auth/login
+2025-09-19T13:08:50.757Z [info]: Logged in Dave as manager
+2025-09-19T13:09:07.892Z [info]: Incoming PATCH : /tickets/1c0fd49d-c988-44fd-ba25-2c7d2f39f463
+2025-09-19T13:09:07.934Z [warn]: Ticket already processed
+2025-09-19T13:09:49.003Z [info]: Incoming PATCH : /tickets/1c0fd49d-c988-44fd-ba25-2c7d2f39f46
+2025-09-19T13:09:49.043Z [warn]: Ticket not found
+2025-09-19T13:13:16.239Z [info]: Incoming POST : /auth/login
+2025-09-19T13:13:16.559Z [info]: Logged in Dave as manager
+2025-09-19T13:13:40.202Z [info]: Incoming PATCH : /tickets/389c89f1-2021-466d-ae6c-5fbac0d7d58c
+2025-09-19T13:13:40.352Z [info]: Ticket processed
+2025-09-19T13:13:55.514Z [info]: Incoming PATCH : /tickets/389c89f1-2021-466d-ae6c-5fbac0d7d58
+2025-09-19T13:13:55.550Z [warn]: Ticket not found
+2025-09-19T13:14:00.559Z [info]: Incoming PATCH : /tickets/389c89f1-2021-466d-ae6c-5fbac0d7d58c
+2025-09-19T13:14:00.593Z [warn]: Ticket already processed
+2025-09-19T13:14:05.458Z [info]: Incoming PATCH : /tickets/389c89f1-2021-466d-ae6c-5fbac0d7d58c
+2025-09-19T13:14:05.495Z [warn]: Ticket already processed
+2025-09-19T13:14:22.364Z [info]: Incoming PATCH : /tickets/962b597d-bea5-4987-85f2-abec9a4e7fa8
+2025-09-19T13:14:22.441Z [warn]: Invalid new status
+2025-09-19T13:17:52.400Z [info]: Incoming POST : /auth/login
+2025-09-19T13:17:52.667Z [info]: Logged in Kristy as employee
+2025-09-19T13:17:56.567Z [info]: Incoming GET : /tickets/?status=pending
