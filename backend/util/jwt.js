@@ -10,10 +10,10 @@ async function authenticateToken(req, res, next){
     const authHeader = req.headers["authorization"];
 
     // uncomment once frontend feeds in token
-    // const token = authHeader && authHeader.split(" ")[1];
+    const token = authHeader && authHeader.split(" ")[1];
 
     // demonstration purposes
-    const token = getToken();
+    // const token = getToken();
 
     if(!token){
         return res.status(401).json({message: "forbidden access"});
