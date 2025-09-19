@@ -47,16 +47,12 @@ describe("User Service Tests", () => {
   });
 
   test("getUserByUsername should handle empty username", async () => {
-    // userRepository.getUserByUsername.mockResolvedValue(null);
-
     await expect(
       userService.getUserByUsername({ username: "" })
     ).rejects.toThrow("Invalid username");
   });
 
   test("getUserByUsername should handle non-string username", async () => {
-    // userRepository.getUserByUsername.mockResolvedValue(null);
-
     await expect(
       userService.getUserByUsername({ username: 1 })
     ).rejects.toThrow("Invalid username");

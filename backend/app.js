@@ -28,8 +28,8 @@ app.get("/", (req, res) => {
 app.get("/frontend/login", (req, res) => {
   res.sendFile(path.join(__dirname, "../frontend", "auth/login.html"));
 });
-
 app.use("/static", express.static(path.join(__dirname, "../frontend/js")));
+
 // Public routes
 app.get("/health", (req, res) => res.json({ status: "API is running" }));
 

@@ -464,3 +464,23 @@
 2025-09-18T22:12:50.368Z [info]: Incoming PATCH : /tickets/3658d285-46ca-4c65-acf0-b47354077b06
 2025-09-18T22:12:59.881Z [info]: Incoming PATCH : /tickets3c8c3d1e-1128-4b1e-a4de-8a176492fd6d
 2025-09-18T22:13:10.323Z [info]: Incoming PATCH : /tickets/3c8c3d1e-1128-4b1e-a4de-8a176492fd6d
+2025-09-18T23:10:46.236Z [info]: Incoming POST : /auth/login
+2025-09-18T23:10:46.518Z [info]: Logged in John as manager
+2025-09-18T23:10:51.749Z [info]: Incoming GET : /tickets/3186364f-ee0e-44ce-8d2d-c08db1ae20e2
+2025-09-18T23:12:55.823Z [info]: Incoming GET : /tickets/3186364f-ee0e-44ce-8d2d-c08db1ae20e2
+2025-09-18T23:12:59.590Z [info]: Incoming POST : /auth/login
+2025-09-18T23:12:59.856Z [info]: Logged in John as manager
+2025-09-18T23:13:02.852Z [info]: Incoming GET : /tickets/3186364f-ee0e-44ce-8d2d-c08db1ae20e2
+2025-09-18T23:13:11.670Z [info]: Incoming GET : /tickets/3186364f-ee0e-44ce-8d2d-c08db1ae20e
+2025-09-19T01:36:05.018Z [warn]: Ticket non-existent-id not found
+2025-09-19T01:36:05.053Z [warn]: Ticket cannot be submitted without an amount greater than 0
+2025-09-19T01:36:05.055Z [warn]: Ticket cannot be submitted without a description
+2025-09-19T01:36:05.059Z [warn]: Ticket not found
+2025-09-19T01:36:05.060Z [warn]: Ticket already processed
+2025-09-19T01:36:05.062Z [warn]: Invalid new status
+2025-09-19T01:36:26.345Z [warn]: Ticket non-existent-id not found
+2025-09-19T01:36:26.387Z [warn]: Ticket cannot be submitted without an amount greater than 0
+2025-09-19T01:36:26.388Z [warn]: Ticket cannot be submitted without a description
+2025-09-19T01:36:26.391Z [warn]: Ticket not found
+2025-09-19T01:36:26.393Z [warn]: Ticket already processed
+2025-09-19T01:36:26.395Z [warn]: Invalid new status

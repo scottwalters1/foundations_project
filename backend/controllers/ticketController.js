@@ -32,16 +32,18 @@ router.get("/", async (req, res, next) => {
 });
 
 // get ticket by id - only manager or if ticket created by logged in user
-router.get("/:ticketId", async (req, res) => {
-  const ticketId = req.params.ticketId;
-  const ticket = await ticketService.getTicketById(ticketId);
-  if (req.user.role !== "manager" && req.user.username !== ticket.username) {
-    return res.status(403).json({ message: "Forbidden: Managers only" });
-  }
-  if (ticket) {
+router.get("/:ticketId", async (req, res, next) => {
+  try {
+    const ticketId = req.params.ticketId;
+    const ticket = await ticketService.getTicketById(ticketId);
+
+    if (req.user.role !== "manager" && req.user.username !== ticket.username) {
+      return res.status(403).json({ message: "Forbidden: Managers only" });
+    }
+
     res.status(200).json(ticket);
-  } else {
-    res.status(400).json({ message: `Ticket ${ticketId} not found` });
+  } catch (err) {
+    next(err); // handled by AppError middleware
   }
 });
 
